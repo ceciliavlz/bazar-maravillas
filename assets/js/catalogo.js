@@ -1,4 +1,6 @@
 import { productos } from "./data.js";
+import { getStock } from "./stockUtils.js";
+
 //cards productos
 function cardProducto(p) {
   const articulo = document.createElement("div");
@@ -14,7 +16,7 @@ function cardProducto(p) {
             </div>
             <div>
                 <p class="descripcion-producto">${p.descripcion}</p>
-                <p class="stock-producto">${p.stock} en Stock</p>
+                <p class="stock-producto">${getStock(p.id)} en Stock</p>
             </div>
         </div>
         <button type="button" onclick="window.location.href='producto.html?id=${p.id}'">
@@ -32,7 +34,7 @@ function initCatalogo() {
 
 //filtro por categoria
 function filtrarProductos(){
-    const categoria = document.getElementById("filtro-categoria").value;
+    const categoria = localStorage.getItem("filtro");
     const cont = document.getElementById("productos");
     cont.innerHTML = "";
 
@@ -41,13 +43,25 @@ function filtrarProductos(){
     //              TRUE: retorna productos de la categoria, 
     //              FALSE: retorna todos los prod
 
-    filtrados.forEach(p => cont.appendChild(cardProducto(p)));  
+    filtrados.forEach(p => {p.stock = cont.appendChild(cardProducto(p))});  
 
+}
+
+//Guarda la última opción del filtro en localStorage
+function actualizarFiltroPersistente() {
+    const categoriaSeleccionada = document.getElementById("filtro-categoria").value;
+    localStorage.setItem("filtro", categoriaSeleccionada);
 }
 
 document.addEventListener("DOMContentLoaded", initCatalogo);
 
+window.addEventListener("storage", initCatalogo);
+
 //evento apretar boton y filtrar
 document.getElementById("boton-filtrar").addEventListener("click", filtrarProductos);
 
+//Filtrar al cargarse la página
+document.addEventListener("DOMContentLoaded", filtrarProductos)
 
+//Filtrar elementos al cargar la página según LocalStorage
+document.getElementById("filtro-categoria").addEventListener("change", actualizarFiltroPersistente);

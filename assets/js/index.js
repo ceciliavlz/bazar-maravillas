@@ -1,4 +1,5 @@
 import { productos } from "./data.js";
+import { getStock } from "./stockUtils.js";
 
 function tarjetaDestacado(p) {
   const articulo = document.createElement("div");
@@ -14,14 +15,14 @@ function tarjetaDestacado(p) {
             </div>
             <div>
                 <p class="descripcion-producto">${p.descripcion}</p>
-                <p class="stock-producto">${p.stock} en Stock</p>
+                <p class="stock-producto">${getStock(p.id)} en Stock</p>
             </div>
         </div>
         <button type="button" onclick="window.location.href='/pages/producto.html?id=${p.id}'">
                       Ver detalles</button>
 `;
   return articulo;
-}
+} //TODO - Bart: Ask teacher if stock should automatically refresh between pages
 
 function initIndex() {
   console.log("corre");
@@ -36,3 +37,5 @@ function initIndex() {
 }
 
 document.addEventListener("DOMContentLoaded", initIndex);
+
+window.addEventListener("storage", initIndex);
