@@ -264,6 +264,9 @@ footer {
 #main-producto{
   box-sizing: border-box;
   padding-top: 15px;
+  height: calc(100vh - 65px - 120px);
+  width: 100%;
+
 }
 
 #detalle-producto{
@@ -271,9 +274,7 @@ footer {
   grid-template-columns: 1fr 1fr;
   padding: 20px;
   
-
   .imagen{
-
     img{
       width: 100%;
       height: 450px;
@@ -285,9 +286,7 @@ footer {
     display: flex;
     flex-direction: column;
     gap: 30px;
-    
-
-
+  
     .disponibilidad{
       font-size: 14px;
       display: flex;
