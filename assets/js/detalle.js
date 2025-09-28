@@ -35,13 +35,34 @@ function seccionProducto(){
 }
 
 function actualizarStockLocalStorage(id, stock){
-    
+    if (localStorage.getItem("arrayStock") === null) {
+        crearArrayStock();
+    }
+
     const arrayStock = JSON.parse(localStorage.getItem("arrayStock"));
     let index = arrayStock.findIndex(product => product.id === id);
     arrayStock[index].stock = stock;
 
-    let arrayStockStr = JSON.stringify(arrayStock);
-    localStorage.setItem("arrayStock", arrayStockStr);
+    localStorage.setItem("arrayStock", JSON.stringify(arrayStock));
+}
+
+function actualizarCarrito() {
+    if (localStorage.getItem("carrito") === null) {
+        localStorage.setItem("carrito", JSON.stringify([]));
+    }
+
+    let carrito = JSON.parse(localStorage.getItem("carrito"));
+    let productoEnCarrito = carrito.findIndex(product => product.id === +id);
+    if (productoEnCarrito === -1) {
+        let productoPorAgregar = new Object;
+        productoPorAgregar.id = +id;
+        productoPorAgregar.cantidad = +document.getElementById('cantidad').value;
+        carrito.push(productoPorAgregar);
+    } else {
+        carrito[productoEnCarrito].cantidad += +document.getElementById('cantidad').value;
+    }
+    localStorage.setItem("carrito", JSON.stringify(carrito));
+    console.log(carrito);
 }
 
 function actualizarStock(e){    //e de evento
@@ -52,9 +73,9 @@ function actualizarStock(e){    //e de evento
     productos.forEach((p, idx) => {
 
         if(p.id === +id) {
-            console.log(p);
             productos[idx].stock -= cantidad;
             actualizarStockLocalStorage(p.id, p.stock);
+            actualizarCarrito();
             seccionProducto();
 
             if(productos[idx].stock <= 0){
@@ -63,7 +84,6 @@ function actualizarStock(e){    //e de evento
         }
 
     })
-
 }
 
 document.addEventListener("DOMContentLoaded", seccionProducto());
