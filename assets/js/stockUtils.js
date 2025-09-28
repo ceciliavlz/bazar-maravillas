@@ -7,7 +7,6 @@ export function getStock(id){
     }
     const arrayStock = JSON.parse(localStorage.getItem("arrayStock"));
     const productInStockArray = arrayStock[arrayStock.findIndex(product => product.id === +id)];
-    console.log(arrayStock.findIndex(product => product.id === +id));
     return productInStockArray.stock;
 }
 
