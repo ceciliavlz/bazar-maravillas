@@ -1,22 +1,44 @@
 import { productos } from "./data.js";
 
-export function getStock(id){
-    id = +id;
+
+function getArrayStock() {
     if (localStorage.getItem("arrayStock") === null) {
         crearArrayStock();
     }
-    const arrayStock = JSON.parse(localStorage.getItem("arrayStock"));
-    const productInStockArray = arrayStock[arrayStock.findIndex(product => product.id === +id)];
-    return productInStockArray.stock;
+   const arrayStock = JSON.parse(localStorage.getItem("arrayStock"));
+
+   return arrayStock;
+}
+
+export function getProductInArrayStock(id){
+    id = parseInt(id);
+    const arrayStock = getArrayStock();
+    const index = arrayStock.findIndex(product => product.id === id);
+
+    return arrayStock[index];
+}
+
+export function getProductStock(id){
+    const product = getProductInArrayStock(id);
+
+    return product.stock;
+}
+
+export function updateProductStock(id, stock){
+    id = parseInt(id);
+
+    const arrayStock = getArrayStock();
+    const index = arrayStock.findIndex(product => product.id === id);
+    arrayStock[index].stock = stock;
+    localStorage.setItem("arrayStock", JSON.stringify(arrayStock));
 }
 
 export function crearArrayStock() {
     let arrayStock = [];
-    for (let i=0; i<productos.length; i++) {
-        let arrayStockItem = new Object();
-        arrayStockItem.id = productos[i].id;
-        arrayStockItem.stock = productos[i].stock;
-        arrayStock.push(arrayStockItem);
+
+    for (let producto of productos) {
+        const { id, stock } = producto;
+        arrayStock.push({id, stock})
     }
     localStorage.setItem("arrayStock", JSON.stringify(arrayStock));
 }

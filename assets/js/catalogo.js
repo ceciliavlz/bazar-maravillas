@@ -1,5 +1,5 @@
 import { productos } from "./data.js";
-import { getStock } from "./stockUtils.js";
+import { getProductStock } from "./stockUtils.js";
 
 //cards productos
 function cardProducto(p) {
@@ -16,7 +16,7 @@ function cardProducto(p) {
             </div>
             <div>
                 <p class="descripcion-producto">${p.descripcion}</p>
-                <p class="stock-producto">${getStock(p.id)} en Stock</p>
+                <p class="stock-producto">${getProductStock(p.id)} en Stock</p>
             </div>
         </div>
         <button type="button" onclick="window.location.href='producto.html?id=${p.id}'">
