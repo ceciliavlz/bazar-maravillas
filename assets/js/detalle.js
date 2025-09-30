@@ -1,6 +1,7 @@
-import { updateProductCarrito } from "./cartUtils.js";
+import { updateProductCarrito } from "./utils/cartUtils.js";
 import { productos } from "./data.js";
-import { getProductStock, updateProductStock, getProductInArrayStock } from "./stockUtils.js";
+import { getProductStock, updateProductStock, getProductInArrayStock } from "./utils/stockUtils.js";
+import { cantidadCarrito } from "./carrito.js";
 
 const urlParams = new URLSearchParams(window.location.search);
 const id = urlParams.get('id');
@@ -47,11 +48,17 @@ function actualizarStock(e){
     updateProductStock(producto.id, producto.stock);
     updateProductCarrito(producto.id, cantidad);
     seccionProducto();
-
+    cantidadCarrito();
+    
     if(producto.stock <= 0){
         document.getElementById("boton-carrito").disabled = true;
     }
 }
 
-document.addEventListener("DOMContentLoaded", seccionProducto());
+function initDetalle(){
+    seccionProducto();
+    cantidadCarrito();
+}
+
+document.addEventListener("DOMContentLoaded", initDetalle);
 document.addEventListener("submit", e => actualizarStock(e));

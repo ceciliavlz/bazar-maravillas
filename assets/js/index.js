@@ -1,5 +1,6 @@
+import { cantidadCarrito } from "./carrito.js";
 import { productos } from "./data.js";
-import { getProductStock } from "./stockUtils.js";
+import { getProductStock } from "./utils/stockUtils.js";
 
 function tarjetaDestacado(p) {
   const articulo = document.createElement("div");
@@ -25,15 +26,14 @@ function tarjetaDestacado(p) {
 } //TODO - Bart: Ask teacher if stock should automatically refresh between pages
 
 function initIndex() {
-  console.log("corre");
   const cont = document.getElementById("productos");
   if (!cont) return;
 
   cont.innerHTML = "";
   for (let i=0; i<4; i++) {
-    console.log(i);
     cont.appendChild(tarjetaDestacado(productos[i]));
   }
+  cantidadCarrito();
 }
 
 document.addEventListener("DOMContentLoaded", initIndex);

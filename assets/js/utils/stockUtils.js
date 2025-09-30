@@ -1,4 +1,4 @@
-import { productos } from "./data.js";
+import { productos } from "../data.js";
 
 
 function getArrayStock() {
@@ -20,7 +20,6 @@ export function getProductInArrayStock(id){
 
 export function getProductStock(id){
     const product = getProductInArrayStock(id);
-
     return product.stock;
 }
 

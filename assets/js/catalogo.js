@@ -1,7 +1,7 @@
+import { cantidadCarrito } from "./carrito.js";
 import { productos } from "./data.js";
-import { getProductStock } from "./stockUtils.js";
+import { getProductStock } from "./utils/stockUtils.js";
 
-//cards productos
 function cardProducto(p) {
   const articulo = document.createElement("div");
   articulo.className = "producto";
@@ -30,9 +30,9 @@ function initCatalogo() {
   if (!cont) return;
   cont.innerHTML = "";
   productos.forEach(p => cont.appendChild(cardProducto(p)));
+  cantidadCarrito();
 }
 
-//filtro por categoria
 function filtrarProductos(){
     const categoria = localStorage.getItem("filtro");
     const cont = document.getElementById("productos");
