@@ -28,7 +28,7 @@ html {
 
 header{
   display: flex;
-  gap: 50px;
+  gap: 30px;
   align-items: center;
   height: 65px;
   background-color: #a27cb8;
@@ -38,9 +38,15 @@ header{
   top: 0;
   padding: 0 25px;
 
+  nav {
+    display: flex;
+    width: 100%;
+  }
+
   nav ul{
     display: flex;
     gap: 30px;
+    width: 100%;
   }
 }
 
@@ -48,6 +54,7 @@ header{
 .logo {
   font-size: 26px;
   font-weight: 100;
+  width:350px;
   a{
     text-decoration: none;
     font-weight: bold;
@@ -55,7 +62,7 @@ header{
   }
 }
 
-/* Lista de enlaces */
+/* nav-links */
 .nav-link {
   list-style: none;
 }
@@ -71,10 +78,14 @@ header{
   color: rgb(35, 27, 39);
 }
 
+.linkCarrito{
+  margin-left: auto;
+}
+
+/*index*/
 .main-index {
   display: flex;
   flex-direction: column;
-
 }
 
   .section-bienvenida{
@@ -86,7 +97,7 @@ header{
     }
   }
 
-  .section-destacados{
+  #section-destacados{
     padding: 20px 20px 80px 20px;
     h2{
       color: rgb(43, 47, 51);
@@ -264,9 +275,8 @@ footer {
 #main-producto{
   box-sizing: border-box;
   padding-top: 15px;
-  height: calc(100vh - 65px - 120px);
+  /*height: calc(100vh - 65px - 120px);*/
   width: 100%;
-
 }
 
 #detalle-producto{
@@ -275,9 +285,11 @@ footer {
   padding: 20px;
   
   .imagen{
+    display: flex;
+    justify-content: center;
     img{
-      width: 100%;
-      height: 450px;
+      width: 80%;
+      height: auto;
       object-fit: contain;
     }
   }
