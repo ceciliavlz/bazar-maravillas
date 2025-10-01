@@ -91,7 +91,7 @@ function initCarrito(){
 }
 
 document.addEventListener("DOMContentLoaded", () => {
-    if (window.location.pathname === "/pages/carrito.html") {
+    if (window.location.pathname.includes("/pages/carrito")) {
         initCarrito();
     }
 });
