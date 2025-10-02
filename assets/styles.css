@@ -42,8 +42,7 @@
 
 html {
   background-color: #f1f3f4;
-  /*background-color: #ffcdb2;*/
-  color: #5b545f;
+  color: var(--color-text);
   font-family: "Noto Sans JP", sans-serif;
   font-optical-sizing: auto;
   font-weight: 400;
@@ -160,7 +159,6 @@ footer {
 }
 
 /*CATALOGO PRODUCTOS*/
-
 .main-productos {
   display: grid;
   grid-template-columns: 1fr 4fr;
@@ -181,9 +179,8 @@ footer {
   display: flex;
   width: 100%;
   padding: 5px;
-
   }
-
+  
   label{
     margin-top: px;
     color: var(--color-text);
@@ -217,7 +214,6 @@ footer {
 
 #productos {
   display: grid;
-  /*padding: 25px; */
   grid-template-columns: repeat(4, 1fr);
   gap: 15px;
   width: 100%;
@@ -256,10 +252,8 @@ footer {
     overflow: hidden;
     display: -webkit-box;
     -webkit-line-clamp: 2;
-    /* Specifies the number of lines */
     -webkit-box-orient: vertical;
     text-overflow: ellipsis;
-    /* Ensures the ellipsis appears */
   }
 
   .precio-producto {
@@ -275,10 +269,8 @@ footer {
     overflow: hidden;
     display: -webkit-box;
     -webkit-line-clamp: 2;
-    /* Specifies the number of lines */
     -webkit-box-orient: vertical;
     text-overflow: ellipsis;
-    /* Ensures the ellipsis appears */
   }
 
   .categoria-producto {
@@ -382,21 +374,106 @@ footer {
 
 /* PAGINA CARRITO */
 #seccion-carrito{
+  display: flex;
   padding: 30px;
   justify-items: center;
+  width: 100%;
 
 }
-#mi-compra{
+.mi-compra{
+  margin-right: 20px;
+  width: 65%;
   display: flex;
   flex-direction: column;
+  padding: 30px;
+  padding-top: 20px;
 
+  ul {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    list-style: none;
+    margin-top: 20px;
+
+    li {
+      padding: 10px;
+      padding-right: 20px;
+      background-color: white;
+      
+
+      div {
+        display: grid;
+        grid-template-columns: 1fr 1.5fr 1fr 2fr .5fr;
+
+        img{
+          object-fit: contain;
+          height: 100px;
+          width: 100px;
+        }
+
+        .nombre{
+          display: flex;
+          font-weight:700;
+        }
+
+        .cantidad{
+          display: flex;
+          justify-self: center;
+          color: #5b545f;
+        }
+
+        .precios{
+          display: flex;
+          flex-direction: column;
+          color: #5b545f;
+        }
+
+        .precios p {
+          display: flex;
+          flex-direction: row;
+          color: #5b545f;
+        }
+
+        button{
+          margin-left: auto;
+        }
+      }
+
+    }
+  }
 
 }
 
-ul li div img{
-  object-fit: contain;
-  height: 100px;
-  width: 100px;
+.detalles-resumen{
+  background-color: white;
+  margin-right: 40px;
+  padding: 20px;
+  height: max-content;
+  width: 35%;
+  
+  ul{
+    margin-top: 20px;
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+
+    li {
+      display: flex;
+      justify-content: space-between;
+      border-bottom: 1px solid rgb(204, 204, 204);
+      padding-bottom: 5px;
+    }
+
+    .total {
+      border-bottom: none;
+    }
+
+    .total p{
+      color: var(--color-text);
+      font-weight: 700;
+    }
+  }
 }
 
 /* carrito vacio */
@@ -421,7 +498,8 @@ ul li div img{
     color: white;
     border: 1px #c45819 solid;
   }
-}
+} 
+
 .img-carrito-vacio{
     width: 50%;
     height: auto;

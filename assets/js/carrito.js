@@ -18,11 +18,16 @@ function crearProductoFila(p){
     return `
         <div id="${id}">
             <img src="${img}"/>
-            <p>${nombre}</p>
-            <p>Cantidad: ${cantidad}</p>
-            <p>Precio unitario ${precio}</p>
-            <p>Precio total ${precio * cantidad}</p>
-
+            <div class="nombre"> 
+                <p>${nombre}</p>
+            </div>
+            <div class="cantidad">
+                <p>Cant. ${cantidad}</p>
+            </div>
+            <div class="precios">
+                <p>P. unitario $${precio.toLocaleString("es-AR")}</p>
+                <p>P. total $${(precio * cantidad).toLocaleString("es-AR")}</p>
+            </div>
             <button class="eliminar-del-carrito">Eliminar</button>
         </div>
     `
@@ -33,6 +38,7 @@ function pintarProductosCarrito(){
 
     const compra = document.createElement('div');
     compra.className = "mi-compra";
+    compra.innerHTML = `<h2>MIS COMPRAS</h2>`;
 
     const productos = obtenerProductosCarrito();
     
@@ -70,14 +76,23 @@ function pintarResumenCompra(){
         return acum + (precio * cantidad);
     }, 0);
 
-    if (getArrayCarrito().length > 0){
-        resumen.innerHTML =`
-        <h1>Mis compras</h1>
-        <p>SubTotal: $${subtotal}</p>
-        <p>Envío: $0</p>
-        <p>Total: $${subtotal}</p>
+    resumen.innerHTML =`
+        <h3>RESUMEN DE COMPRA</h3>
+        <ul class="resumen">
+            <li> 
+                <p>SubTotal:</p>
+                <p>$${subtotal.toLocaleString("es-AR")}</p>
+            </li>
+            <li>
+                <p>Envío:</p>
+                <p>Gratis</p>
+            </li>
+            <li class="total">
+                <p>TOTAL:</p>
+                <p>$${subtotal.toLocaleString("es-AR")}</p>
+            </li>
+        </ul>
         `
-    }
 
     seccionCarrito.appendChild(resumen);
 }
@@ -97,20 +112,20 @@ function pintarCarritoVacio(){
     seccionCarrito.appendChild(carritoVacio);
 }
 
-function pintarCarrito(){
-    const seccionCarrito = document.getElementById('seccion-carrito');
-    seccionCarrito.innerHTML = '';
-
-    pintarProductosCarrito();
-    pintarResumenCompra();
-}
-
 export function cantidadCarrito(){
     const arrayCarrito = getArrayCarrito();
     const total = arrayCarrito.reduce((acum,p) => acum + p.cantidad,0);
 
     let cantidad = document.getElementById("contador-carrito");
     cantidad.textContent = total;
+}
+
+function pintarCarrito(){
+    const seccionCarrito = document.getElementById('seccion-carrito');
+    seccionCarrito.innerHTML = '';
+
+    pintarProductosCarrito();
+    pintarResumenCompra();
 }
 
 function initCarrito(){

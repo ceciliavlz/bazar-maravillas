@@ -24,7 +24,7 @@ function tarjetaDestacado(p) {
                       Ver detalles</button>
 `;
   return articulo;
-} //TODO - Bart: Ask teacher if stock should automatically refresh between pages
+}
 
 function initIndex() {
   const cont = document.getElementById("productos");
@@ -32,7 +32,7 @@ function initIndex() {
 
   const indexUsadosSet = new Set();
 
-  while(indexUsadosSet.size <= 3){
+  while(indexUsadosSet.size < 4){
     let randomInt = Math.floor(Math.random() * getProductos().length);
     indexUsadosSet.add(randomInt);
   }
