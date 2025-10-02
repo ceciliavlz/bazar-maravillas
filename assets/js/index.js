@@ -1,5 +1,6 @@
 import { cantidadCarrito } from "./carrito.js";
 import { productos } from "./data.js";
+import { getProductos } from "./utils/productoUtils.js";
 import { getProductStock } from "./utils/stockUtils.js";
 
 function tarjetaDestacado(p) {
@@ -29,9 +30,19 @@ function initIndex() {
   const cont = document.getElementById("productos");
   if (!cont) return;
 
+  const indexUsadosSet = new Set();
+
+  while(indexUsadosSet.size <= 3){
+    let randomInt = Math.floor(Math.random() * getProductos().length);
+    indexUsadosSet.add(randomInt);
+  }
+
+  const indexUsadosArray = [...indexUsadosSet];
+
   cont.innerHTML = "";
   for (let i=0; i<4; i++) {
-    cont.appendChild(tarjetaDestacado(productos[i]));
+    const index = indexUsadosArray[i];
+    cont.appendChild(tarjetaDestacado(productos[index]));
   }
   cantidadCarrito();
 }

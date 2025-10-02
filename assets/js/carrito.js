@@ -29,8 +29,10 @@ function crearProductoFila(p){
 };
 
 function pintarProductosCarrito(){
-    const seccionMiCompra = document.getElementById('mi-compra');
-    seccionMiCompra.innerHTML = '';
+    const seccionCarrito = document.getElementById('seccion-carrito');
+
+    const compra = document.createElement('div');
+    compra.className = "mi-compra";
 
     const productos = obtenerProductosCarrito();
     
@@ -44,22 +46,22 @@ function pintarProductosCarrito(){
         listaProductos.appendChild(producto);
     });
 
-    seccionMiCompra.appendChild(listaProductos);
+    compra.appendChild(listaProductos);
+    seccionCarrito.appendChild(compra);
 
     document.querySelectorAll('.eliminar-del-carrito').forEach(b => {
         b.addEventListener('click', (e) => {
             removeProductCarrito(b.parentElement.id);
             initCarrito();
-            pintarResumenCompra();
         });
     });
 }
 
 function pintarResumenCompra(){
-    const resumenCompra = document.getElementById('resumen-compra');
-    resumenCompra.innerHTML = '';
-    
-    const resumen = document.createElement('div')
+    const seccionCarrito = document.getElementById('seccion-carrito');
+
+    const resumen = document.createElement('div');
+    resumen.className = "detalles-resumen";
 
     const productos = obtenerProductosCarrito();
 
@@ -68,12 +70,39 @@ function pintarResumenCompra(){
         return acum + (precio * cantidad);
     }, 0);
 
-    resumen.innerHTML = `
+    if (getArrayCarrito().length > 0){
+        resumen.innerHTML =`
+        <h1>Mis compras</h1>
         <p>SubTotal: $${subtotal}</p>
         <p>Envío: $0</p>
         <p>Total: $${subtotal}</p>
+        `
+    }
+
+    seccionCarrito.appendChild(resumen);
+}
+
+function pintarCarritoVacio(){
+    const seccionCarrito = document.getElementById('seccion-carrito');
+    seccionCarrito.innerHTML = '';
+
+    const carritoVacio = document.createElement('div');
+    carritoVacio.className = "carrito-vacio";
+
+        carritoVacio.innerHTML = `
+        <img class="img-carrito-vacio" src="../assets/img/empty-cart-removebg.png" alt="carrito vacio">
+        <p>¡Tu carrito está vacio! Agregá productos desde nuestro catálogo</p>
+        <a href="../pages/products.html">Ver productos ➜</a>
     `
-    resumenCompra.appendChild(resumen)
+    seccionCarrito.appendChild(carritoVacio);
+}
+
+function pintarCarrito(){
+    const seccionCarrito = document.getElementById('seccion-carrito');
+    seccionCarrito.innerHTML = '';
+
+    pintarProductosCarrito();
+    pintarResumenCompra();
 }
 
 export function cantidadCarrito(){
@@ -85,8 +114,12 @@ export function cantidadCarrito(){
 }
 
 function initCarrito(){
-    pintarProductosCarrito();
-    pintarResumenCompra();
+    if(getArrayCarrito().length === 0){
+        pintarCarritoVacio();
+    } else {
+        pintarCarrito()
+    }
+
     cantidadCarrito();
 }
 

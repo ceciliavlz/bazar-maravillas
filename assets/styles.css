@@ -1,6 +1,34 @@
 /*FUENTE*/
 @import url("https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@100..900&display=swap");
 
+:root{
+  --main-height: calc(100vh - 65px - 120px);
+  --color-primary: #a27cb8;
+  --color-accent: #c45819;
+  --color-bg: #f1f3f4;
+  --color-text: #212529;
+}
+.cart-icon{
+  position: relative;
+}
+
+#contador-carrito {
+  display: flex;
+  position: absolute;
+  background: rgb(214, 94, 94);
+  height: 0px;
+  width:0px;
+  padding: 10px;
+  justify-content: center;
+  align-items: center;
+  border-radius: 100%;
+  top: -10px;
+  right: -10px;
+  font-size: 10px;
+  font-weight: 400;
+  transition: all ease-in-out .3s;
+}
+
 * {
   margin: 0;
   padding: 0;
@@ -10,10 +38,6 @@
 *::before,
 *::after {
   box-sizing: border-box;
-}
-
-body{
-  padding-top: 65px; /*65 px para el fixed navbar*/
 }
 
 html {
@@ -31,7 +55,7 @@ header{
   gap: 30px;
   align-items: center;
   height: 65px;
-  background-color: #a27cb8;
+  background-color: var(--color-primary);
   z-index: 9999;
   position: fixed;
   width: 100%;
@@ -48,6 +72,14 @@ header{
     gap: 30px;
     width: 100%;
   }
+}
+
+main{
+  min-height: var(--main-height);
+}
+
+body{
+  margin-top: 65px; /*65 px para el fixed navbar*/
 }
 
 /* Logo */
@@ -100,7 +132,7 @@ header{
   #section-destacados{
     padding: 20px 20px 80px 20px;
     h2{
-      color: rgb(43, 47, 51);
+      color: var(--color-text);
       font-weight: 300;
       margin-bottom: 20px;
       margin-left: 20px;
@@ -145,7 +177,7 @@ footer {
 
   select{
   margin-top: 15px;
-  border: 1px solid rgb(43, 47, 51);
+  border: 1px solid var(--color-text);
   display: flex;
   width: 100%;
   padding: 5px;
@@ -154,14 +186,14 @@ footer {
 
   label{
     margin-top: px;
-    color: rgb(43, 47, 51);
+    color: var(--color-text);
     font-weight: 300;
     font-size: medium;
   }
 }
 
 .titulo-catalogo{
-    color: rgb(33, 37, 41);
+    color: var(--color-text);
     font-size: large;
     margin-top: 25px;
   }
@@ -170,8 +202,8 @@ footer {
     align-self: center;
     width: max-content;
     padding: 8px;
-    border: 1px rgb(33, 37, 41) solid;
-    color: rgb(33, 37, 41);
+    border: 1px var(--color-text) solid;
+    color: var(--color-text);
     background-color: white;
     cursor: pointer;
     transition: all ease-in-out 0.3s;
@@ -219,7 +251,7 @@ footer {
   }
 
   .nombre-producto {
-    color: rgb(33, 37, 41);
+    color: var(--color-text);
     font-size: medium;
     overflow: hidden;
     display: -webkit-box;
@@ -231,13 +263,13 @@ footer {
   }
 
   .precio-producto {
-    color: rgb(33, 37, 41);
+    color: var(--color-text);
     font-size: x-large;
     font-weight: bold;
   }
 
   .descripcion-producto {
-    color: rgb(43, 47, 51);
+    color: var(--color-text);
     font-weight: 300;
     font-size: small;
     overflow: hidden;
@@ -250,13 +282,13 @@ footer {
   }
 
   .categoria-producto {
-    color: rgb(43, 47, 51);
+    color: var(--color-text);
     font-weight: 300;
     font-size: small;
   }
 
   .stock-producto {
-    color: rgb(43, 47, 51);
+    color: var(--color-text);
     font-weight: bold;
     font-size: small;
   }
@@ -273,83 +305,126 @@ footer {
 
 /*PRODUCTO INDIVIDUAL*/
 #main-producto{
-  box-sizing: border-box;
-  padding-top: 15px;
-  /*height: calc(100vh - 65px - 120px);*/
-  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 #detalle-producto{
   display: grid;
   grid-template-columns: 1fr 1fr;
   padding: 20px;
-  
+
   .imagen{
     display: flex;
     justify-content: center;
     img{
-      width: 80%;
+      width: 70%;
       height: auto;
       object-fit: contain;
     }
   }
-
-  .detalles{
-    display: flex;
-    flex-direction: column;
-    gap: 30px;
-  
-    .disponibilidad{
-      font-size: 14px;
+    .detalles{
       display: flex;
-      justify-content: center;
-      align-items: center;
-      padding: 5px;
-      width: max-content;
-      color: #0e1e10;
-      font-weight: 400;
-      margin-bottom: 10px;
+      flex-direction: column;
+      gap: 30px;
+    
+      .disponibilidad{
+        font-size: 14px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: 5px;
+        width: max-content;
+        color: var(--color-text);
+        font-weight: 400;
+        margin-bottom: 10px;
+      }
+      .hay-stock{
+        background-color: #acdbb0;
+      }
+      .sin-stock{
+        background-color: #eda3a3;
+      }
+
+      h4{
+        font-size: 30px;
+        color: var(--color-text);
+        font-weight: 500;
+      }
+
+      .precio-producto {
+      color: var(--color-text);
+      font-size: 35px;
+      font-weight: bold;
     }
-    .hay-stock{
-      background-color: #acdbb0;
+    
+    input{
+      margin-top:15px;
+      padding: 8px;
+      border: 1px var(--color-text) solid;
+      color: var(--color-text);
+      border-radius: none;
     }
-    .sin-stock{
-      background-color: #eda3a3;
+    
+    .descripcion-producto{
+      color: var(--color-text);
+      font-weight: 300;
     }
 
-    h4{
-      font-size: 30px;
-      color: rgb(33, 37, 41);
-      font-weight: 500;
+    #boton-carrito:disabled{
+      background-color: grey;
+      border: 1px var(--color-text) solid;
+      color: var(--color-text);
     }
+  }
+}
 
-    .precio-producto {
-    color: rgb(33, 37, 41);
-    font-size: 35px;
-    font-weight: bold;
-  }
-  
-  input{
-    margin-top:15px;
-    padding: 8px;
-    border: 1px rgb(33, 37, 41) solid;
-    color: rgb(33, 37, 41);
-    border-radius: none;
-  }
-  
-  .descripcion-producto{
-    color: rgb(33, 37, 41);
-    font-weight: 300;
-  }
+/* PAGINA CARRITO */
+#seccion-carrito{
+  padding: 30px;
+  justify-items: center;
 
-  #boton-carrito:disabled{
-    background-color: grey;
-    border: 1px rgb(33, 37, 41) solid;
-    color: rgb(33, 37, 41);
-
-  }
-
-  }
+}
+#mi-compra{
+  display: flex;
+  flex-direction: column;
 
 
 }
+
+ul li div img{
+  object-fit: contain;
+  height: 100px;
+  width: 100px;
+}
+
+/* carrito vacio */
+.carrito-vacio{
+  display: flex;
+  flex-direction: column;
+  padding: 20px;
+  align-items: center;
+  gap: 30px;
+  
+  a{
+    align-content: center;
+    text-decoration: none;
+    padding: 12px;
+    border: 1px var(--color-text) solid;
+    color: var(--color-text);
+    background-color: white;
+    transition: all ease-in-out 0.3s;
+  }
+  a:hover {
+    background-color: #c45819;
+    color: white;
+    border: 1px #c45819 solid;
+  }
+}
+.img-carrito-vacio{
+    width: 50%;
+    height: auto;
+    object-fit: contain;
+  }
+

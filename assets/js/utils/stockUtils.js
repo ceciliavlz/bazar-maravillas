@@ -1,5 +1,4 @@
-import { productos } from "../data.js";
-
+import { getProductos } from "./productoUtils.js";
 
 function getArrayStock() {
     if (localStorage.getItem("arrayStock") === null) {
@@ -33,6 +32,7 @@ export function updateProductStock(id, stock){
 }
 
 export function crearArrayStock() {
+    const productos = getProductos();
     let arrayStock = [];
 
     for (let producto of productos) {
