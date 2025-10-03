@@ -376,7 +376,8 @@ footer {
 #seccion-carrito{
   display: flex;
   padding: 30px;
-  justify-items: center;
+  align-items: center;
+  justify-content: center;
   width: 100%;
 
 }
@@ -480,7 +481,6 @@ footer {
   display: flex;
   flex-direction: column;
   padding: 20px;
-  justify-content: center;
   align-items: center;
   gap: 30px;
   
