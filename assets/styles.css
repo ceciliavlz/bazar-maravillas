@@ -376,7 +376,6 @@ footer {
 #seccion-carrito{
   display: flex;
   padding: 30px;
-  align-items: center;
   justify-content: center;
   width: 100%;
 
