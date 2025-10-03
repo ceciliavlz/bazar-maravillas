@@ -20,7 +20,7 @@ function tarjetaDestacado(p) {
                 <p class="stock-producto">${getProductStock(p.id)} en Stock</p>
             </div>
         </div>
-        <button type="button" onclick="window.location.href='/pages/producto.html?id=${p.id}'">
+        <button type="button" onclick="window.location.href='pages/producto.html?id=${p.id}'">
                       Ver detalles</button>
 `;
   return articulo;
