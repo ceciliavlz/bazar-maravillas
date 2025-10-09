@@ -17,7 +17,7 @@ function crearProductoFila(p){
     const { id, nombre, precio, img, cantidad } = p;
     return `
         <div id="${id}">
-            <img src="${img}"/>
+            <img src="${img}" alt="${nombre}"/>
             <div class="nombre"> 
                 <p>${nombre}</p>
             </div>
