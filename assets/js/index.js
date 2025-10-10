@@ -1,7 +1,10 @@
-import { cantidadCarrito } from "./carrito.js";
+import { cantidadCarrito } from "./utils/cartUtils.js";
 import { productos } from "./data.js";
 import { getProductos } from "./utils/productoUtils.js";
 import { getProductStock } from "./utils/stockUtils.js";
+import { setPageKeywords } from "./utils/pageUtils.js";
+
+setPageKeywords();
 
 function tarjetaDestacado(p) {
   const articulo = document.createElement("div");

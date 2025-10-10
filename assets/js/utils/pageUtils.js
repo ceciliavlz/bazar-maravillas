@@ -9,3 +9,16 @@ export function setPageDescription(description) {
         document.head.appendChild(newDescription);
     }
 }
+
+export function setPageKeywords() {
+    const keywords = "comprar, bazar, hogar, deco, decoracion";
+    const pageKeywords = document.querySelector('meta[name="keywords"]');
+    if (pageKeywords) {
+        pageKeywords.setAttribute("content", keywords);
+    } else {
+        const newKeywords = document.createElement("meta");
+        newKeywords.name = "keywords";
+        newKeywords.content = keywords;
+        document.head.appendChild(newKeywords);
+    }
+}

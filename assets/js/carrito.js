@@ -1,5 +1,8 @@
-import { getArrayCarrito, removeProductCarrito } from "./utils/cartUtils.js";
+import { getArrayCarrito, removeProductCarrito, cantidadCarrito } from "./utils/cartUtils.js";
 import { getProductById } from "./utils/productoUtils.js";
+import { setPageKeywords } from "./utils/pageUtils.js";
+
+setPageKeywords();
 
 export function obtenerProductosCarrito(){
     const carrito = getArrayCarrito();
@@ -110,14 +113,6 @@ function pintarCarritoVacio(){
         <a href="../pages/products.html">Ver productos ➜</a>
     `
     seccionCarrito.appendChild(carritoVacio);
-}
-
-export function cantidadCarrito(){
-    const arrayCarrito = getArrayCarrito();
-    const total = arrayCarrito.reduce((acum,p) => acum + p.cantidad,0);
-
-    let cantidad = document.getElementById("contador-carrito");
-    cantidad.textContent = total;
 }
 
 function pintarCarrito(){

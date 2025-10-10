@@ -1,8 +1,7 @@
-import { updateProductCarrito } from "./utils/cartUtils.js";
+import { updateProductCarrito, cantidadCarrito } from "./utils/cartUtils.js";
 import { productos } from "./data.js";
 import { getProductStock, updateProductStock, getProductInArrayStock } from "./utils/stockUtils.js";
-import { cantidadCarrito } from "./carrito.js";
-import { setPageDescription } from "./utils/pageUtils.js";
+import { setPageDescription, setPageKeywords } from "./utils/pageUtils.js";
 
 const urlParams = new URLSearchParams(window.location.search);
 const id = urlParams.get('id');
@@ -10,6 +9,7 @@ const p = productos.find((p) => p.id === parseInt(id));
 document.title = p.nombre.charAt(0) + p.nombre.slice(1).toLowerCase() + " - Bazar Maravillas";
 const description = "Compra " + p.nombre + " en Bazar Maravillas";
 
+setPageKeywords();
 setPageDescription(description);
 
 function seccionProducto(){
