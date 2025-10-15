@@ -1,5 +1,8 @@
-import { getArrayCarrito, removeProductCarrito } from "./utils/cartUtils.js";
+import { getArrayCarrito, removeProductCarrito, cantidadCarrito } from "./utils/cartUtils.js";
 import { getProductById } from "./utils/productoUtils.js";
+import { setPageKeywords } from "./utils/pageUtils.js";
+
+setPageKeywords();
 
 export function obtenerProductosCarrito(){
     const carrito = getArrayCarrito();
@@ -17,20 +20,28 @@ function crearProductoFila(p){
     const { id, nombre, precio, img, cantidad } = p;
     return `
         <div id="${id}">
-            <img src="${img}"/>
-            <p>${nombre}</p>
-            <p>Cantidad: ${cantidad}</p>
-            <p>Precio unitario ${precio}</p>
-            <p>Precio total ${precio * cantidad}</p>
-
+            <img src="${img}" alt="${nombre}"/>
+            <div class="nombre"> 
+                <p>${nombre}</p>
+            </div>
+            <div class="cantidad">
+                <p>Cant. ${cantidad}</p>
+            </div>
+            <div class="precios">
+                <p>P. unitario $${precio.toLocaleString("es-AR")}</p>
+                <p>P. total $${(precio * cantidad).toLocaleString("es-AR")}</p>
+            </div>
             <button class="eliminar-del-carrito">Eliminar</button>
         </div>
     `
 };
 
 function pintarProductosCarrito(){
-    const seccionMiCompra = document.getElementById('mi-compra');
-    seccionMiCompra.innerHTML = '';
+    const seccionCarrito = document.getElementById('seccion-carrito');
+
+    const compra = document.createElement('div');
+    compra.className = "mi-compra";
+    compra.innerHTML = `<h2>MIS COMPRAS</h2>`;
 
     const productos = obtenerProductosCarrito();
     
@@ -44,22 +55,22 @@ function pintarProductosCarrito(){
         listaProductos.appendChild(producto);
     });
 
-    seccionMiCompra.appendChild(listaProductos);
+    compra.appendChild(listaProductos);
+    seccionCarrito.appendChild(compra);
 
     document.querySelectorAll('.eliminar-del-carrito').forEach(b => {
         b.addEventListener('click', (e) => {
             removeProductCarrito(b.parentElement.id);
             initCarrito();
-            pintarResumenCompra();
         });
     });
 }
 
 function pintarResumenCompra(){
-    const resumenCompra = document.getElementById('resumen-compra');
-    resumenCompra.innerHTML = '';
-    
-    const resumen = document.createElement('div')
+    const seccionCarrito = document.getElementById('seccion-carrito');
+
+    const resumen = document.createElement('div');
+    resumen.className = "detalles-resumen";
 
     const productos = obtenerProductosCarrito();
 
@@ -68,30 +79,62 @@ function pintarResumenCompra(){
         return acum + (precio * cantidad);
     }, 0);
 
-    resumen.innerHTML = `
-        <p>SubTotal: $${subtotal}</p>
-        <p>Envío: $0</p>
-        <p>Total: $${subtotal}</p>
-    `
-    resumenCompra.appendChild(resumen)
+    resumen.innerHTML =`
+        <h3>RESUMEN DE COMPRA</h3>
+        <ul class="resumen">
+            <li> 
+                <p>SubTotal:</p>
+                <p>$${subtotal.toLocaleString("es-AR")}</p>
+            </li>
+            <li>
+                <p>Envío:</p>
+                <p>Gratis</p>
+            </li>
+            <li class="total">
+                <p>TOTAL:</p>
+                <p>$${subtotal.toLocaleString("es-AR")}</p>
+            </li>
+        </ul>
+        `
+
+    seccionCarrito.appendChild(resumen);
 }
 
-export function cantidadCarrito(){
-    const arrayCarrito = getArrayCarrito();
-    const total = arrayCarrito.reduce((acum,p) => acum + p.cantidad,0);
+function pintarCarritoVacio(){
+    const seccionCarrito = document.getElementById('seccion-carrito');
+    seccionCarrito.innerHTML = '';
 
-    let cantidad = document.getElementById("contador-carrito");
-    cantidad.textContent = total;
+    const carritoVacio = document.createElement('div');
+    carritoVacio.className = "carrito-vacio";
+
+        carritoVacio.innerHTML = `
+        <img class="img-carrito-vacio" src="../assets/img/empty-cart-removebg.png" alt="carrito vacio">
+        <p>¡Tu carrito está vacio! Agregá productos desde nuestro catálogo</p>
+        <a href="../pages/products.html">Ver productos ➜</a>
+    `
+    seccionCarrito.appendChild(carritoVacio);
+}
+
+function pintarCarrito(){
+    const seccionCarrito = document.getElementById('seccion-carrito');
+    seccionCarrito.innerHTML = '';
+
+    pintarProductosCarrito();
+    pintarResumenCompra();
 }
 
 function initCarrito(){
-    pintarProductosCarrito();
-    pintarResumenCompra();
+    if(getArrayCarrito().length === 0){
+        pintarCarritoVacio();
+    } else {
+        pintarCarrito()
+    }
+
     cantidadCarrito();
 }
 
 document.addEventListener("DOMContentLoaded", () => {
-    if (window.location.pathname === "/pages/carrito.html") {
+    if (window.location.pathname.includes("/pages/carrito")) {
         initCarrito();
     }
 });

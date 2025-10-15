@@ -1,6 +1,9 @@
-import { cantidadCarrito } from "./carrito.js";
+import { cantidadCarrito } from "./utils/cartUtils.js";
 import { productos } from "./data.js";
 import { getProductStock } from "./utils/stockUtils.js";
+import { setPageKeywords } from "./utils/pageUtils.js";
+
+setPageKeywords();
 
 function cardProducto(p) {
   const articulo = document.createElement("div");

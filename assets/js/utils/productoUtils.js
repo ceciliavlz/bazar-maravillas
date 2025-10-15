@@ -6,3 +6,7 @@ export function getProductById(id){
 
     return productos[index];
 }
+
+export function getProductos(){
+    return productos;
+}

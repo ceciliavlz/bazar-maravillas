@@ -1,6 +1,10 @@
-import { cantidadCarrito } from "./carrito.js";
+import { cantidadCarrito } from "./utils/cartUtils.js";
 import { productos } from "./data.js";
+import { getProductos } from "./utils/productoUtils.js";
 import { getProductStock } from "./utils/stockUtils.js";
+import { setPageKeywords } from "./utils/pageUtils.js";
+
+setPageKeywords();
 
 function tarjetaDestacado(p) {
   const articulo = document.createElement("div");
@@ -19,19 +23,29 @@ function tarjetaDestacado(p) {
                 <p class="stock-producto">${getProductStock(p.id)} en Stock</p>
             </div>
         </div>
-        <button type="button" onclick="window.location.href='/pages/producto.html?id=${p.id}'">
+        <button type="button" onclick="window.location.href='pages/producto.html?id=${p.id}'">
                       Ver detalles</button>
 `;
   return articulo;
-} //TODO - Bart: Ask teacher if stock should automatically refresh between pages
+}
 
 function initIndex() {
   const cont = document.getElementById("productos");
   if (!cont) return;
 
+  const indexUsadosSet = new Set();
+
+  while(indexUsadosSet.size < 4){
+    let randomInt = Math.floor(Math.random() * getProductos().length);
+    indexUsadosSet.add(randomInt);
+  }
+
+  const indexUsadosArray = [...indexUsadosSet];
+
   cont.innerHTML = "";
   for (let i=0; i<4; i++) {
-    cont.appendChild(tarjetaDestacado(productos[i]));
+    const index = indexUsadosArray[i];
+    cont.appendChild(tarjetaDestacado(productos[index]));
   }
   cantidadCarrito();
 }

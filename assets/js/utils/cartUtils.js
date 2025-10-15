@@ -5,6 +5,14 @@ function crearArrayCarrito() {
     localStorage.setItem("arrayCarrito", JSON.stringify(arrayCarrito));
 }
 
+export function cantidadCarrito(){
+    const arrayCarrito = getArrayCarrito();
+    const total = arrayCarrito.reduce((acum,p) => acum + p.cantidad,0);
+
+    let cantidad = document.getElementById("contador-carrito");
+    cantidad.textContent = total;
+}
+
 export function getArrayCarrito() {
     if (localStorage.getItem("arrayCarrito") === null) {
         crearArrayCarrito();
