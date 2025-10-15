@@ -11,24 +11,26 @@
 </head>
 
 <body>
-    <header>
-        <h1 class="logo"><a href="/">BAZAR MARAVILLAS</a></h1>
-        <nav>
+    <header role="banner">
+        <h1 class="logo">
+            <a href="/">BAZAR MARAVILLAS</a></h1>
+        <nav aria-label="Navegación principal">
             <ul>
                 <li class="nav-link"><a href="../index.html">INICIO</a></li>
                 <li class="nav-link"><a href="../index.html#section-destacados">DESTACADOS</a></li>
                 <li class="nav-link"><a href="/pages/products.html">PRODUCTOS</a></li>
                 <li class="nav-link"><a href="">CONTACTO</a></li>
-                <li class="nav-link linkCarrito"><a href="/pages/carrito.html" class="cart-icon">🛒 <span id="contador-carrito">0</span></a></li>
+                <li class="nav-link linkCarrito"><a href="/pages/carrito.html" class="cart-icon" aria-label="Ver carrito">
+                    🛒 <span id="contador-carrito" aria-live="polite">0</span></a></li>
             </ul>
         </nav>
     </header>
 
     <main id="main-carrito">
-        <section id="seccion-carrito"></section>
+        <section id="seccion-carrito" aria-label="Carrito de compras"></section>
     </main>
 
-    <footer>
+    <footer role="contentinfo">
         <p>&copy; 2025 Bazar Maravillas</p>
         <p>Integrantes: Godoy Nahuel, Rodriguez Bartolomé (delegado), Sextua Sandra, Velzi Cecilia.</p>
     </footer>
@@ -37,4 +39,4 @@
 
 </body>
 
-</html> <!-- Comentario de prueba -->>
+</html>

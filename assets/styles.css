@@ -3,8 +3,8 @@
 
 :root{
   --main-height: calc(100vh - 65px - 120px);
-  --color-primary: #a27cb8;
-  --color-accent: #c45819;
+  --color-primary: #1a2c44;
+  --color-accent: #da6026;
   --color-bg: #f1f3f4;
   --color-text: #212529;
 }
@@ -15,7 +15,7 @@
 #contador-carrito {
   display: flex;
   position: absolute;
-  background: rgb(214, 94, 94);
+  background: rgb(253, 0, 0);
   height: 0px;
   width:0px;
   padding: 10px;
@@ -41,7 +41,7 @@
 }
 
 html {
-  background-color: #f1f3f4;
+  background-color: var(--color-bg);
   color: var(--color-text);
   font-family: "Noto Sans JP", sans-serif;
   font-optical-sizing: auto;
@@ -89,7 +89,7 @@ body{
   a{
     text-decoration: none;
     font-weight: bold;
-    color: white;
+    color: var(--color-bg);
   }
 }
 
@@ -106,7 +106,7 @@ body{
 }
 
 .nav-link a:hover {
-  color: rgb(35, 27, 39);
+  /*añadir animacion cool*/
 }
 
 .linkCarrito{
@@ -150,10 +150,10 @@ footer {
   flex-direction: column;
   justify-content: center;
   text-align: center;
-  background-color: #54415f;
-  color: white;
+  background-color: #a3abb4;
+  color: var(--color-text);
   align-items: center;
-  font-weight: 100;
+  font-weight: 400;
   font-size: small;
   gap: 15px;
 }
@@ -207,9 +207,9 @@ footer {
   }
 
   button:hover {
-    background-color: #c45819;
+    background-color: var(--color-accent);
     color: white;
-    border: 1px #c45819 solid;
+    border: 1px var(--color-accent) solid;
   }
 
 #productos {
@@ -493,9 +493,9 @@ footer {
     transition: all ease-in-out 0.3s;
   }
   a:hover {
-    background-color: #c45819;
+    background-color: var(--color-accent);
     color: white;
-    border: 1px #c45819 solid;
+    border: 1px var(--color-accent) solid;
   }
 } 
 

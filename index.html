@@ -11,37 +11,37 @@
 </head>
 
 <body>
-    <header>
-        <h1 class="logo"><a href="#">BAZAR MARAVILLAS</a></h1>
-        <nav>
+    <header role="banner" aria-label="Menú principal">
+        <h1 class="logo"><a href="#" aria-label="Ir al inicio">BAZAR MARAVILLAS</a></h1>
+        <nav role="navigation">
             <ul>
                 <li class="nav-link"><a href="#section-destacados">DESTACADOS</a></li>
                 <li class="nav-link"><a href="./pages/products.html">PRODUCTOS</a></li>
                 <li class="nav-link"><a href="">CONTACTO</a></li>
-                <li class="nav-link linkCarrito"><a href="./pages/carrito.html" class="cart-icon">🛒 <span id="contador-carrito">0</span></a></li>
+                <li class="nav-link linkCarrito"><a href="./pages/carrito.html" class="cart-icon" aria-label="Ver carrito">
+                    🛒<span id="contador-carrito" aria-live="polite">0</span></a></li>
             </ul>
         </nav>
     </header>
 
     <main class="main-index">
-
-        <section class="section-bienvenida">
+        <section class="section-bienvenida" aria-labelledby="titulo-bienvenida">
             <div>
                 <img src="./assets/img/Bazar Maravillas.png" alt="Bazar maravillas hogar jardin cocina">
             </div>
         </section>
 
         <!-- Destacados -->
-        <section id="section-destacados">
+        <section id="section-destacados" aria-labelledby="titulo-destacados">
             <h2>DESTACADOS</h2>
 
-            <div id="productos"></div>
+            <div id="productos" aria-label="Productos destacados"></div>
 
         </section>
         <br/>
     </main>
 
-    <footer>
+    <footer role="contentinfo">
         <p>&copy; 2025 Bazar Maravillas</p>
         <p>Integrantes: Godoy Nahuel, Rodriguez Bartolomé (delegado), Sextua Sandra, Velzi Cecilia.</p>
     </footer>

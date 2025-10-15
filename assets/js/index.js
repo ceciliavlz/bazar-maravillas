@@ -9,22 +9,26 @@ setPageKeywords();
 function tarjetaDestacado(p) {
   const articulo = document.createElement("div");
   articulo.className = "producto";
+  articulo.setAttribute("role", "group");
+  articulo.setAttribute("aria-labelledby", `titulo-prod-${p.id}`);
+  articulo.setAttribute("aria-describedby", `descripcion-prod-${p.id}`);
   articulo.innerHTML = `
   <img src=${p.img} alt=${p.nombre}>
         <div class="producto-detalles"> 
             <div>
-                <h4 class="nombre-producto">${p.nombre}</h4>
+                <h4 id="titulo-prod-${p.id}" class="nombre-producto">${p.nombre}</h4>
             </div>
             <div>
                 <p class="precio-producto"><strong>$${p.precio.toLocaleString("es-AR")}</strong></p>
             </div>
             <div>
-                <p class="descripcion-producto">${p.descripcion}</p>
+                <p id="descripcion-prod-${p.id}" class="descripcion-producto">${p.descripcion}</p>
                 <p class="stock-producto">${getProductStock(p.id)} en Stock</p>
             </div>
         </div>
-        <button type="button" onclick="window.location.href='pages/producto.html?id=${p.id}'">
-                      Ver detalles</button>
+        <button type="button" aria-label="Ver detalles de ${p.nombre}"
+          onclick="window.location.href='pages/producto.html?id=${p.id}'">
+          Ver detalles</button>
 `;
   return articulo;
 }
