@@ -115,7 +115,7 @@ function pintarCarritoVacio(){
     carritoVacio.setAttribute('aria-live', 'polite');
 
         carritoVacio.innerHTML = `
-        <img class="img-carrito-vacio" src="../assets/img/empty-cart-removebg.png" alt="carrito vacio">
+        <img class="img-carrito-vacio" src="../assets/img/empty-cart-removebg.webp" alt="carrito vacio">
         <p>¡Tu carrito está vacio! Agregá productos desde nuestro catálogo</p>
         <a href="../pages/products.html">Ver productos ➜</a>
     `
