@@ -13,7 +13,7 @@ function cardProducto(p) {
   articulo.setAttribute("aria-describedby", `descripcion-prod-${p.id}`);
 
   articulo.innerHTML = `
-   <img src=${p.img} alt=${p.nombre}>
+   <img src=${p.img.baja} alt=${p.nombre}>
         <div class="producto-detalles"> 
             <div>
                 <h4 id="titulo-prod-${p.id}" class="nombre-producto">${p.nombre}</h4>

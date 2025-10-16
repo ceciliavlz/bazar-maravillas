@@ -18,7 +18,7 @@ function seccionProducto(){
     const seccion = document.getElementById("detalle-producto");
     seccion.innerHTML = `
         <div class="imagen">
-            <img src=${p.img} alt="Imagen de ${p.nombre}">
+            <img src=${p.img.alta} alt="Imagen de ${p.nombre}">
         </div>
 
         <div class="detalles">

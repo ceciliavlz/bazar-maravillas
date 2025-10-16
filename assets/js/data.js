@@ -7,7 +7,10 @@ export const productos = [
     categoria: "deco-hogar",
     stock: 8,
     precio: 250000,
-    img: "../assets/img/mesa-madera.jpg"
+    img: {
+      alta: "../assets/img/mesa-madera.webp",
+      baja: "../assets/img/mesa-madera_300x300.webp",
+    }
   },
   {
     id: 102,
@@ -16,7 +19,10 @@ export const productos = [
     categoria: "deco-hogar",
     stock: 30,
     precio: 4000,
-    img: "../assets/img/planta.jpg",
+    img: {
+      alta: "../assets/img/planta.webp",
+      baja: "../assets/img/planta_300x300.webp",
+    }
   },
   {
     id: 103,
@@ -25,7 +31,10 @@ export const productos = [
     categoria: "deco-hogar",
     stock: 20,
     precio: 4000,
-    img: "../assets/img/organizador.jpg"
+    img: {
+      alta: "../assets/img/organizador.webp",
+      baja: "../assets/img/organizador_300x300.webp",
+    }
   },
   {
     id: 104,
@@ -34,7 +43,10 @@ export const productos = [
     categoria: "deco-hogar",
     stock: 12,
     precio: 9500,
-    img: "../assets/img/decoracion-minimalista.png"
+    img: {
+      alta: "../assets/img/decoracion-minimalista.png",
+      baja: "../assets/img/decoracion-minimalista_300x300.webp",
+    }
   },
   {
     id: 105,
@@ -43,7 +55,10 @@ export const productos = [
     categoria: "deco-hogar",
     stock: 20,
     precio: 10500,
-    img: "../assets/img/planificador.jpg"
+    img: {
+      alta: "../assets/img/planificador.webp",
+      baja: "../assets/img/planificador_300x300.webp",
+    }
   },
   {
     id: 106,
@@ -52,7 +67,10 @@ export const productos = [
     categoria: "deco-hogar",
     stock: 10,
     precio: 100000,
-    img: "../assets/img/persiana.jpg"
+    img: {
+      alta: "../assets/img/persiana.webp",
+      baja: "../assets/img/persiana_300x300.webp",
+    }
   },
   {
     id: 201,
@@ -61,7 +79,10 @@ export const productos = [
     categoria: "articulos-cocina",
     stock: 30,
     precio: 20500,
-    img: "../assets/img/utensilios.jpg"
+    img: {
+      alta: "../assets/img/utensilios.webp",
+      baja: "../assets/img/utensilios_300x300.webp",
+    }
   },
   {
     id: 202,
@@ -70,7 +91,10 @@ export const productos = [
     categoria: "articulos-cocina",
     stock: 18,
     precio: 8000,
-    img: "../assets/img/mate-acero.jpg"
+    img: {
+      alta: "../assets/img/mate-acero.webp",
+      baja: "../assets/img/mate-acero_300x300.webp",
+    }
   },
   {
     id: 203,
@@ -79,7 +103,10 @@ export const productos = [
     categoria: "articulos-cocina",
     stock: 10,
     precio: 52000,
-    img: "../assets/img/olla.jpg"
+    img: {
+      alta: "../assets/img/olla.webp",
+      baja: "../assets/img/olla_300x300.webp",
+    }
   },
   {
     id: 301,
@@ -88,9 +115,11 @@ export const productos = [
     categoria: "vajilla",
     stock: 15,
     precio: 40000,
-    img: "../assets/img/vajilla.jpg"
+    img: {
+      alta: "../assets/img/vajilla.webp",
+      baja: "../assets/img/vajilla_300x300.webp",
+    }
   },
-
   {
     id: 401,
     nombre: "JUEGO DE SÁBANAS 2 Y 1/2 PLAZAS",
@@ -98,7 +127,10 @@ export const productos = [
     categoria: "cama",
     stock: 20,
     precio: 45000,
-    img: "../assets/img/sabana-gris.jpg"
+    img: {
+      alta: "../assets/img/sabana-gris.webp",
+      baja: "../assets/img/sabana-gris_300x300.webp",
+    }
   },
   {
     id: 402,
@@ -107,7 +139,10 @@ export const productos = [
     categoria: "cama",
     stock: 8,
     precio: 30000,
-    img: "../assets/img/cubrecama.jpg"
+    img: {
+      alta: "../assets/img/cubrecama.webp",
+      baja: "../assets/img/cubrecama_300x300.webp",
+    }
   },
   {
     id: 501,
@@ -116,7 +151,10 @@ export const productos = [
     categoria: "jardin",
     stock: 10,
     precio: 15000,
-    img: "../assets/img/5-plantas.jpg"
+    img: {
+      alta: "../assets/img/5-plantas.webp",
+      baja: "../assets/img/5-plantas_300x300.webp",
+    }
   },
   {
     id: 502,
@@ -125,6 +163,9 @@ export const productos = [
     categoria: "jardin",
     stock: 15,
     precio: 10000,
-    img: "../assets/img/macetas.jpg"
+    img: {
+      alta: "../assets/img/macetas.webp",
+      baja: "../assets/img/macetas_300x300.webp",
+    }
   }
 ];

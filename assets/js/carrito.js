@@ -20,7 +20,7 @@ function crearProductoFila(p){
     const { id, nombre, precio, img, cantidad } = p;
     return `
         <div id="${id}" role="group" aria-labelledby="nombre-${id}">
-            <img src="${img}" alt="${nombre}"/>
+            <img src="${img.baja}" alt="${nombre}"/>
             <div class="nombre"> 
                 <p>${nombre}</p>
             </div>
