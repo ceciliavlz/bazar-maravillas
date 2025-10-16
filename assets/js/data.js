@@ -44,7 +44,7 @@ export const productos = [
     stock: 12,
     precio: 9500,
     img: {
-      alta: "../assets/img/decoracion-minimalista.png",
+      alta: "../assets/img/decoracion-minimalista.webp",
       baja: "../assets/img/decoracion-minimalista_300x300.webp",
     }
   },
