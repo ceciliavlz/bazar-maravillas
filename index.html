@@ -13,14 +13,22 @@
 <body>
     <header role="banner" aria-label="Menú principal">
         <h1 class="logo"><a href="#" aria-label="Ir al inicio">BAZAR MARAVILLAS</a></h1>
-        <nav role="navigation">
-            <ul>
+        <nav id="nav" role="navigation" aria-label="Menú principal">
+            <ul id="nav-list" class="nav-list">
+                <button id="cerrar-hamburguesa" aria-label="expanded" aria-expanded="true">X</button>
                 <li class="nav-link"><a href="#section-destacados">DESTACADOS</a></li>
                 <li class="nav-link"><a href="./pages/products.html">PRODUCTOS</a></li>
                 <li class="nav-link"><a href="">CONTACTO</a></li>
-                <li class="nav-link linkCarrito"><a href="./pages/carrito.html" class="cart-icon" aria-label="Ver carrito">
-                    🛒<span id="contador-carrito" aria-live="polite">0</span></a></li>
             </ul>
+            
+            <a href="./pages/carrito.html" class="cart-icon linkCarrito" aria-label="Ver carrito">
+                🛒
+                <span id="contador-carrito">0</span>
+            </a>
+
+            <button id="menu-hamburguesa" aria-label="expanded" aria-expanded="false">
+                <img src="assets/img/hamburger-icon.png" alt="Menú" height="35rem" width="35rem"/>
+            </button>
         </nav>
     </header>
 

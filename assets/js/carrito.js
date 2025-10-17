@@ -1,6 +1,6 @@
 import { getArrayCarrito, removeProductCarrito, cantidadCarrito } from "./utils/cartUtils.js";
 import { getProductById } from "./utils/productoUtils.js";
-import { setPageKeywords } from "./utils/pageUtils.js";
+import { setPageKeywords, navPages } from "./utils/pageUtils.js";
 
 setPageKeywords();
 
@@ -138,6 +138,21 @@ function initCarrito(){
     }
 
     cantidadCarrito();
+    
+    navPages();
+
+    const abrirHamburguesa = document.querySelector("#menu-hamburguesa");
+    const cerrarHamburguesa = document.querySelector("#cerrar-hamburguesa");
+    
+    abrirHamburguesa.addEventListener("click", () => {
+        const nav = document.querySelector("#nav-list");
+        nav.classList.add("visible");
+    })
+
+    cerrarHamburguesa.addEventListener("click", () => {
+        const nav = document.querySelector("#nav-list");
+        nav.classList.remove("visible");
+    })
 }
 
 document.addEventListener("DOMContentLoaded", () => {

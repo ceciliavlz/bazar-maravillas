@@ -10,6 +10,8 @@
 }
 .cart-icon{
   position: relative;
+  font-size: 1.7rem;
+  margin-right: 2rem;
 }
 
 #contador-carrito {
@@ -53,7 +55,7 @@ header{
   display: flex;
   gap: 30px;
   align-items: center;
-  height: 65px;
+  height: 7rem;
   background-color: var(--color-primary);
   z-index: 9999;
   position: fixed;
@@ -83,7 +85,7 @@ body{
 
 /* Logo */
 .logo {
-  font-size: 26px;
+  font-size: 2rem;
   font-weight: 100;
   width:350px;
   a{
@@ -505,3 +507,49 @@ footer {
     object-fit: contain;
   }
 
+#menu-hamburguesa, #cerrar-hamburguesa {
+  display: none;
+}
+
+@media screen and (max-width: 37.5rem) {
+  #menu-hamburguesa, #cerrar-hamburguesa {
+    display: block;
+    margin: 0;
+    padding: 0;
+    background-color: transparent;
+    color: aliceblue;
+    font-size: x-large;
+    transition: 0s; /*quick fix: si los botones tienen animación, al cerrar l aanimación dura más que lo que se cierra*/
+  }
+
+  #cerrar-hamburguesa {
+    align-self:flex-end;
+  }
+
+  .nav-list {
+    visibility: hidden;
+
+    display: flex;
+    flex-direction: column;
+    align-items: end;
+    height: 100vh;
+    width: 50vw;
+    position: absolute;
+    top: 0;
+    right: 0;
+
+    padding: 1rem;
+    padding-top: 5rem;
+    
+    background-color: #212529;
+  }
+
+  .nav-link {
+    padding-top: 5vh;
+    font-size: x-large;
+  }
+
+  .nav-list.visible {
+    visibility: visible;
+  }
+}

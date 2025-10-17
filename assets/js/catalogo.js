@@ -1,7 +1,7 @@
 import { cantidadCarrito } from "./utils/cartUtils.js";
 import { productos } from "./data.js";
 import { getProductStock } from "./utils/stockUtils.js";
-import { setPageKeywords } from "./utils/pageUtils.js";
+import { setPageKeywords, navPages } from "./utils/pageUtils.js";
 
 setPageKeywords();
 
@@ -39,7 +39,23 @@ function initCatalogo() {
   if (!cont) return;
   cont.innerHTML = "";
   productos.forEach(p => cont.appendChild(cardProducto(p)));
+  
   cantidadCarrito();
+  
+  navPages();
+
+  const abrirHamburguesa = document.querySelector("#menu-hamburguesa");
+  const cerrarHamburguesa = document.querySelector("#cerrar-hamburguesa");
+  
+  abrirHamburguesa.addEventListener("click", () => {
+    const nav = document.querySelector("#nav-list");
+    nav.classList.add("visible");
+  })
+  
+  cerrarHamburguesa.addEventListener("click", () => {
+    const nav = document.querySelector("#nav-list");
+    nav.classList.remove("visible");
+  })
 }
 
 function filtrarProductos(){

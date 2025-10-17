@@ -4,6 +4,9 @@ import { getProductos } from "./utils/productoUtils.js";
 import { getProductStock } from "./utils/stockUtils.js";
 import { setPageKeywords } from "./utils/pageUtils.js";
 
+const abrirHamburguesa = document.querySelector("#menu-hamburguesa");
+const cerrarHamburguesa = document.querySelector("#cerrar-hamburguesa");
+
 setPageKeywords();
 
 function tarjetaDestacado(p) {
@@ -57,3 +60,13 @@ function initIndex() {
 document.addEventListener("DOMContentLoaded", initIndex);
 
 window.addEventListener("storage", initIndex);
+
+abrirHamburguesa.addEventListener("click", () => {
+  const nav = document.querySelector("#nav-list");
+  nav.classList.add("visible");
+})
+
+cerrarHamburguesa.addEventListener("click", () => {
+  const nav = document.querySelector("#nav-list");
+  nav.classList.remove("visible");
+})
