@@ -6,22 +6,38 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Bienvenido a Bazar Maravillas">
     <title>Inicio - Bazar Maravillas</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
     <link rel="icon" href="./assets/img/favicon.ico"/>
     <link rel="stylesheet" href="assets/styles.css"/>
 </head>
 
 <body>
     <header role="banner" aria-label="Menú principal">
-        <h1 class="logo"><a href="#" aria-label="Ir al inicio">BAZAR MARAVILLAS</a></h1>
-        <nav role="navigation">
-            <ul>
-                <li class="nav-link"><a href="#section-destacados">DESTACADOS</a></li>
-                <li class="nav-link"><a href="./pages/products.html">PRODUCTOS</a></li>
-                <li class="nav-link"><a href="">CONTACTO</a></li>
-                <li class="nav-link linkCarrito"><a href="./pages/carrito.html" class="cart-icon" aria-label="Ver carrito">
-                    🛒<span id="contador-carrito" aria-live="polite">0</span></a></li>
+        <button id="menu-hamburguesa" aria-label="expanded" aria-expanded="false">
+            <i class="bi bi-list"></i>
+        </button>
+        <a href="#" aria-label="Ir al inicio">
+            <img src="./assets/img/logo-desktop.png" alt="Bazar Maravillas Logo" class="logo-desktop">
+        </a>
+        <nav role="navigation" class="nav" id="nav" aria-label="Menú principal">
+            <button id="cerrar-hamburguesa" aria-label="expanded" aria-expanded="false">
+                <i class="bi bi-x-lg"></i>
+            </button>
+            <ul class="nav-list">
+                <li class="nav-link"><a href="#section-destacados">
+                    <i class="bi bi-star"></i>DESTACADOS</a>
+                </li>
+                <li class="nav-link"><a href="./pages/products.html">
+                    <i class="bi bi-bag"></i>PRODUCTOS</a>
+                </li>
+                <li class="nav-link"><a href="">
+                    <i class="bi bi-telephone-inbound"></i>CONTACTO</a>
+                </li>
             </ul>
         </nav>
+        <a href="./pages/carrito.html" class="cart-icon linkCarrito" aria-label="Ver carrito">
+           <i class="bi bi-cart"></i><span id="contador-carrito" aria-live="polite">0</span>
+        </a>
     </header>
 
     <main class="main-index">
@@ -30,15 +46,13 @@
                 <img src="./assets/img/Bazar-Maravillas.webp" alt="Bazar maravillas hogar jardin cocina">
             </div>
         </section>
-
-        <!-- Destacados -->
         <section id="section-destacados" aria-labelledby="titulo-destacados">
+
             <h2>DESTACADOS</h2>
 
             <div id="productos" aria-label="Productos destacados"></div>
 
         </section>
-        <br/>
     </main>
 
     <footer role="contentinfo">

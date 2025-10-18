@@ -1,6 +1,7 @@
 import { getArrayCarrito, removeProductCarrito, cantidadCarrito } from "./utils/cartUtils.js";
 import { getProductById } from "./utils/productoUtils.js";
 import { setPageKeywords } from "./utils/pageUtils.js";
+import { menuHamburguesa } from "./utils/pageUtils.js";
 
 setPageKeywords();
 
@@ -31,7 +32,7 @@ function crearProductoFila(p){
                 <p>P. unitario $${precio.toLocaleString("es-AR")}</p>
                 <p>P. total $${(precio * cantidad).toLocaleString("es-AR")}</p>
             </div>
-            <button class="eliminar-del-carrito" aria-label="Eliminar ${nombre} del carrito">
+            <button class="eliminar-del-carrito boton" aria-label="Eliminar ${nombre} del carrito">
             Eliminar
             </button>
         </div>
@@ -115,9 +116,9 @@ function pintarCarritoVacio(){
     carritoVacio.setAttribute('aria-live', 'polite');
 
         carritoVacio.innerHTML = `
-        <img class="img-carrito-vacio" src="../assets/img/empty-cart-removebg.webp" alt="carrito vacio">
+        <img class="img-carrito-vacio" src="../assets/img/empty-cart-removebg.png" alt="carrito vacio">
         <p>¡Tu carrito está vacio! Agregá productos desde nuestro catálogo</p>
-        <a href="../pages/products.html">Ver productos ➜</a>
+        <a href="../pages/products.html" class="boton">Ver productos ➜</a>
     `
     seccionCarrito.appendChild(carritoVacio);
 }
@@ -136,7 +137,7 @@ function initCarrito(){
     } else {
         pintarCarrito()
     }
-
+    menuHamburguesa();
     cantidadCarrito();
 }
 

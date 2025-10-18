@@ -22,3 +22,21 @@ export function setPageKeywords() {
         document.head.appendChild(newKeywords);
     }
 }
+
+export function menuHamburguesa(){
+    const nav = document.querySelector("#nav");
+    const abrir = document.querySelector("#menu-hamburguesa");
+    const cerrar = document.querySelector("#cerrar-hamburguesa");
+    
+    abrir.addEventListener("click", () =>{
+        nav.classList.add("visible");
+    })
+
+    cerrar.addEventListener("click", () =>{
+        nav.classList.add("menu-cerrado");
+        setTimeout(() => {
+        nav.classList.remove("visible");
+        nav.classList.remove("menu-cerrado");
+        }, 200);
+    })
+}

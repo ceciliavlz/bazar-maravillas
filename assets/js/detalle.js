@@ -2,6 +2,7 @@ import { updateProductCarrito, cantidadCarrito } from "./utils/cartUtils.js";
 import { productos } from "./data.js";
 import { getProductStock, updateProductStock, getProductInArrayStock } from "./utils/stockUtils.js";
 import { setPageDescription, setPageKeywords } from "./utils/pageUtils.js";
+import { menuHamburguesa } from "./utils/pageUtils.js";
 
 const urlParams = new URLSearchParams(window.location.search);
 const id = urlParams.get('id');
@@ -38,7 +39,7 @@ function seccionProducto(){
                         min="1"
                         max="${p.stock}"
                         aria-describedby="stock-info-${p.id}"> 
-                    <button id="boton-carrito">AGREGAR AL CARRITO</button>
+                    <button id="boton-carrito" class="boton">AGREGAR AL CARRITO</button>
                 </form>
             </div>
             <div class="descripcion-producto" aria-label="Descripción del producto">
@@ -69,6 +70,7 @@ function actualizarStock(e){
 function initDetalle(){
     seccionProducto();
     cantidadCarrito();
+    menuHamburguesa();
 }
 
 document.addEventListener("DOMContentLoaded", initDetalle);

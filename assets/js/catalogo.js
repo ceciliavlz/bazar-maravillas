@@ -2,6 +2,7 @@ import { cantidadCarrito } from "./utils/cartUtils.js";
 import { productos } from "./data.js";
 import { getProductStock } from "./utils/stockUtils.js";
 import { setPageKeywords } from "./utils/pageUtils.js";
+import { menuHamburguesa } from "./utils/pageUtils.js";
 
 setPageKeywords();
 
@@ -26,7 +27,7 @@ function cardProducto(p) {
                 <p class="stock-producto">${getProductStock(p.id)} en Stock</p>
             </div>
         </div>
-        <button type="button" aria-label="Ver detalles de ${p.nombre}"
+        <button type="button" class="boton" aria-label="Ver detalles de ${p.nombre}"
             onclick="window.location.href='producto.html?id=${p.id}'">
             Ver detalles
         </button>
@@ -35,11 +36,13 @@ function cardProducto(p) {
 }
 
 function initCatalogo() {
-  const cont = document.getElementById("productos");
-  if (!cont) return;
-  cont.innerHTML = "";
-  productos.forEach(p => cont.appendChild(cardProducto(p)));
-  cantidadCarrito();
+    const cont = document.getElementById("productos");
+    if (!cont) return;
+    cont.innerHTML = "";
+    productos.forEach(p => cont.appendChild(cardProducto(p)));
+    
+    cantidadCarrito();
+    menuHamburguesa();
 }
 
 function filtrarProductos(){
@@ -48,15 +51,11 @@ function filtrarProductos(){
     cont.innerHTML = "";
 
     const filtrados = categoria ? productos.filter((p)=> p.categoria === categoria): productos;
-    //esto hace: categoria tiene un valor distinto a ""(vacio) ? 
-    //              TRUE: retorna productos de la categoria, 
-    //              FALSE: retorna todos los prod
 
     filtrados.forEach(p => {p.stock = cont.appendChild(cardProducto(p))});  
 
 }
 
-//Guarda la última opción del filtro en localStorage
 function actualizarFiltroPersistente() {
     const categoriaSeleccionada = document.getElementById("filtro-categoria").value;
     localStorage.setItem("filtro", categoriaSeleccionada);
@@ -66,11 +65,8 @@ document.addEventListener("DOMContentLoaded", initCatalogo);
 
 window.addEventListener("storage", initCatalogo);
 
-//evento apretar boton y filtrar
 document.getElementById("boton-filtrar").addEventListener("click", filtrarProductos);
 
-//Filtrar al cargarse la página
 document.addEventListener("DOMContentLoaded", filtrarProductos)
 
-//Filtrar elementos al cargar la página según LocalStorage
 document.getElementById("filtro-categoria").addEventListener("change", actualizarFiltroPersistente);

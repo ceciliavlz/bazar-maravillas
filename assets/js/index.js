@@ -3,6 +3,7 @@ import { productos } from "./data.js";
 import { getProductos } from "./utils/productoUtils.js";
 import { getProductStock } from "./utils/stockUtils.js";
 import { setPageKeywords } from "./utils/pageUtils.js";
+import { menuHamburguesa } from "./utils/pageUtils.js";
 
 setPageKeywords();
 
@@ -26,7 +27,7 @@ function tarjetaDestacado(p) {
                 <p class="stock-producto">${getProductStock(p.id)} en Stock</p>
             </div>
         </div>
-        <button type="button" aria-label="Ver detalles de ${p.nombre}"
+        <button type="button" class="boton" aria-label="Ver detalles de ${p.nombre}"
           onclick="window.location.href='pages/producto.html?id=${p.id}'">
           Ver detalles</button>
 `;
@@ -51,7 +52,10 @@ function initIndex() {
     const index = indexUsadosArray[i];
     cont.appendChild(tarjetaDestacado(productos[index]));
   }
+
   cantidadCarrito();
+  menuHamburguesa();
+  
 }
 
 document.addEventListener("DOMContentLoaded", initIndex);
