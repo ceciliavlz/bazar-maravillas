@@ -1,14 +1,15 @@
 /*FUENTE*/
 @import url("https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@100..900&display=swap");
 
-:root{
+:root {
   --main-height: calc(100vh - 65px - 120px);
   --color-primary: #1a2c44;
   --color-accent: #da6026;
   --color-bg: #f1f3f4;
   --color-text: #212529;
 }
-.cart-icon{
+
+.cart-icon {
   position: relative;
   font-size: 1.7rem;
   margin-right: 2rem;
@@ -19,7 +20,7 @@
   position: absolute;
   background: rgb(253, 0, 0);
   height: 0px;
-  width:0px;
+  width: 0px;
   padding: 10px;
   justify-content: center;
   align-items: center;
@@ -51,7 +52,7 @@ html {
   font-style: normal;
 }
 
-header{
+header {
   display: flex;
   gap: 30px;
   align-items: center;
@@ -68,27 +69,29 @@ header{
     width: 100%;
   }
 
-  nav ul{
+  nav ul {
     display: flex;
     gap: 30px;
     width: 100%;
   }
 }
 
-main{
+main {
   min-height: var(--main-height);
 }
 
-body{
-  margin-top: 65px; /*65 px para el fixed navbar*/
+body {
+  margin-top: 65px;
+  /*65 px para el fixed navbar*/
 }
 
 /* Logo */
 .logo {
   font-size: 2rem;
   font-weight: 100;
-  width:350px;
-  a{
+  width: 350px;
+
+  a {
     text-decoration: none;
     font-weight: bold;
     color: var(--color-bg);
@@ -111,7 +114,7 @@ body{
   /*añadir animacion cool*/
 }
 
-.linkCarrito{
+.linkCarrito {
   margin-left: auto;
 }
 
@@ -121,30 +124,31 @@ body{
   flex-direction: column;
 }
 
-  .section-bienvenida{
-    div img{
-      display: flex;
-      width: 100%;
-      height: 500px;
-      object-fit: contain;
-    }
-  }
-
-  #section-destacados{
-    padding: 20px 20px 80px 20px;
-    h2{
-      color: var(--color-text);
-      font-weight: 300;
-      margin-bottom: 20px;
-      margin-left: 20px;
-    }
-  }
-
-  .destacados {
+.section-bienvenida {
+  div img {
     display: flex;
-    gap: 20px;
     width: 100%;
+    height: 500px;
+    object-fit: contain;
   }
+}
+
+#section-destacados {
+  padding: 20px 20px 80px 20px;
+
+  h2 {
+    color: var(--color-text);
+    font-weight: 300;
+    margin-bottom: 20px;
+    margin-left: 20px;
+  }
+}
+
+.destacados {
+  display: flex;
+  gap: 20px;
+  width: 100%;
+}
 
 footer {
   height: 120px;
@@ -166,24 +170,34 @@ footer {
   grid-template-columns: 1fr 4fr;
   padding: 25px;
   gap: 25px;
+
+  @media (width <=550px) {
+    display: grid;
+    grid-template-columns: 1fr;
+  }
 }
 
-#hero{
+#hero {
   display: flex;
   flex-direction: column;
   background-color: white;
   gap: 25px;
-  padding: 15px;  
+  padding: 15px;
 
-  select{
-  margin-top: 15px;
-  border: 1px solid var(--color-text);
-  display: flex;
-  width: 100%;
-  padding: 5px;
+  @media (width <=550px) {
+    display: flex;
+
   }
-  
-  label{
+
+  select {
+    margin-top: 15px;
+    border: 1px solid var(--color-text);
+    display: flex;
+    width: 100%;
+    padding: 5px;
+  }
+
+  label {
     margin-top: px;
     color: var(--color-text);
     font-weight: 300;
@@ -191,34 +205,38 @@ footer {
   }
 }
 
-.titulo-catalogo{
-    color: var(--color-text);
-    font-size: large;
-    margin-top: 25px;
-  }
+.titulo-catalogo {
+  color: var(--color-text);
+  font-size: large;
+  margin-top: 25px;
+}
 
-  button{
-    align-self: center;
-    width: max-content;
-    padding: 8px;
-    border: 1px var(--color-text) solid;
-    color: var(--color-text);
-    background-color: white;
-    cursor: pointer;
-    transition: all ease-in-out 0.3s;
-  }
+button {
+  align-self: center;
+  width: max-content;
+  padding: 8px;
+  border: 1px var(--color-text) solid;
+  color: var(--color-text);
+  background-color: white;
+  cursor: pointer;
+  transition: all ease-in-out 0.3s;
+}
 
-  button:hover {
-    background-color: var(--color-accent);
-    color: white;
-    border: 1px var(--color-accent) solid;
-  }
+button:hover {
+  background-color: var(--color-accent);
+  color: white;
+  border: 1px var(--color-accent) solid;
+}
 
 #productos {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   gap: 15px;
   width: 100%;
+
+  @media (width <=550px) {
+    grid-template-columns: 1fr 1fr;
+  }
 }
 
 .producto {
@@ -287,7 +305,7 @@ footer {
     font-size: small;
   }
 
-   button{
+  button {
     margin-top: 15px;
   }
 
@@ -298,75 +316,79 @@ footer {
 }
 
 /*PRODUCTO INDIVIDUAL*/
-#main-producto{
+#main-producto {
   display: flex;
   justify-content: center;
   align-items: center;
 }
 
-#detalle-producto{
+#detalle-producto {
   display: grid;
   grid-template-columns: 1fr 1fr;
   padding: 20px;
 
-  .imagen{
+  .imagen {
     display: flex;
     justify-content: center;
-    img{
+
+    img {
       width: 70%;
       height: auto;
       object-fit: contain;
     }
   }
-    .detalles{
+
+  .detalles {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+
+    .disponibilidad {
+      font-size: 14px;
       display: flex;
-      flex-direction: column;
-      gap: 30px;
-    
-      .disponibilidad{
-        font-size: 14px;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        padding: 5px;
-        width: max-content;
-        color: var(--color-text);
-        font-weight: 400;
-        margin-bottom: 10px;
-      }
-      .hay-stock{
-        background-color: #acdbb0;
-      }
-      .sin-stock{
-        background-color: #eda3a3;
-      }
+      justify-content: center;
+      align-items: center;
+      padding: 5px;
+      width: max-content;
+      color: var(--color-text);
+      font-weight: 400;
+      margin-bottom: 10px;
+    }
 
-      h4{
-        font-size: 30px;
-        color: var(--color-text);
-        font-weight: 500;
-      }
+    .hay-stock {
+      background-color: #acdbb0;
+    }
 
-      .precio-producto {
+    .sin-stock {
+      background-color: #eda3a3;
+    }
+
+    h4 {
+      font-size: 30px;
+      color: var(--color-text);
+      font-weight: 500;
+    }
+
+    .precio-producto {
       color: var(--color-text);
       font-size: 35px;
       font-weight: bold;
     }
-    
-    input{
-      margin-top:15px;
+
+    input {
+      margin-top: 15px;
       padding: 8px;
       border: 1px var(--color-text) solid;
       color: var(--color-text);
       border-radius: none;
     }
-    
-    .descripcion-producto{
+
+    .descripcion-producto {
       color: var(--color-text);
       font-weight: 300;
     }
 
-    #boton-carrito:disabled{
+    #boton-carrito:disabled {
       background-color: grey;
       border: 1px var(--color-text) solid;
       color: var(--color-text);
@@ -375,14 +397,15 @@ footer {
 }
 
 /* PAGINA CARRITO */
-#seccion-carrito{
+#seccion-carrito {
   display: flex;
   padding: 30px;
   justify-content: center;
   width: 100%;
 
 }
-.mi-compra{
+
+.mi-compra {
   margin-right: 20px;
   width: 65%;
   display: flex;
@@ -401,31 +424,31 @@ footer {
       padding: 10px;
       padding-right: 20px;
       background-color: white;
-      
+
 
       div {
         display: grid;
         grid-template-columns: 1fr 1.5fr 1fr 2fr .5fr;
 
-        img{
+        img {
           object-fit: contain;
           height: 100px;
           width: 100px;
         }
 
-        .nombre{
+        .nombre {
           display: flex;
-          font-weight:700;
+          font-weight: 700;
           padding-left: 10px;
         }
 
-        .cantidad{
+        .cantidad {
           display: flex;
           justify-self: center;
           color: #5b545f;
         }
 
-        .precios{
+        .precios {
           display: flex;
           flex-direction: column;
           color: #5b545f;
@@ -437,7 +460,7 @@ footer {
           color: #5b545f;
         }
 
-        button{
+        button {
           margin-left: auto;
         }
       }
@@ -445,14 +468,14 @@ footer {
   }
 }
 
-.detalles-resumen{
+.detalles-resumen {
   background-color: white;
   margin-right: 40px;
   padding: 20px;
   height: max-content;
   width: 35%;
-  
-  ul{
+
+  ul {
     margin-top: 20px;
     list-style: none;
     display: flex;
@@ -470,7 +493,7 @@ footer {
       border-bottom: none;
     }
 
-    .total p{
+    .total p {
       color: var(--color-text);
       font-weight: 700;
     }
@@ -478,14 +501,14 @@ footer {
 }
 
 /* carrito vacio */
-.carrito-vacio{
+.carrito-vacio {
   display: flex;
   flex-direction: column;
   padding: 20px;
   align-items: center;
   gap: 30px;
-  
-  a{
+
+  a {
     align-content: center;
     text-decoration: none;
     padding: 12px;
@@ -494,18 +517,13 @@ footer {
     background-color: white;
     transition: all ease-in-out 0.3s;
   }
+
   a:hover {
     background-color: var(--color-accent);
     color: white;
     border: 1px var(--color-accent) solid;
   }
-} 
-
-.img-carrito-vacio{
-    width: 50%;
-    height: auto;
-    object-fit: contain;
-  }
+}
 
 #menu-hamburguesa, #cerrar-hamburguesa {
   display: none;
