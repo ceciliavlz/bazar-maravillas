@@ -2,7 +2,7 @@ import { cantidadCarrito } from "./utils/cartUtils.js";
 import { productos } from "./data.js";
 import { getProductStock } from "./utils/stockUtils.js";
 import { setPageKeywords } from "./utils/pageUtils.js";
-import { menuHamburguesa } from "./utils/pageUtils.js";
+import { menuHamburguesa, navPages } from "./utils/pageUtils.js";
 
 setPageKeywords();
 
@@ -41,6 +41,7 @@ function initCatalogo() {
     cont.innerHTML = "";
     productos.forEach(p => cont.appendChild(cardProducto(p)));
     
+    navPages();
     cantidadCarrito();
     menuHamburguesa();
 }

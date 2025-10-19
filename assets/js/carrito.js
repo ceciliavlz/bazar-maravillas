@@ -1,7 +1,7 @@
 import { getArrayCarrito, removeProductCarrito, cantidadCarrito } from "./utils/cartUtils.js";
 import { getProductById } from "./utils/productoUtils.js";
 import { setPageKeywords } from "./utils/pageUtils.js";
-import { menuHamburguesa } from "./utils/pageUtils.js";
+import { menuHamburguesa,navPages } from "./utils/pageUtils.js";
 
 setPageKeywords();
 
@@ -137,6 +137,7 @@ function initCarrito(){
     } else {
         pintarCarrito()
     }
+    navPages();
     menuHamburguesa();
     cantidadCarrito();
 }

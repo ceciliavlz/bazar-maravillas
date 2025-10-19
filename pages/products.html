@@ -11,32 +11,18 @@
     <link rel="stylesheet" href="../assets/styles.css">
 </head>
 <body>
-    <header role="banner" aria-label="Menú principal">
-        <button id="menu-hamburguesa" aria-label="expanded" aria-expanded="false">
-            <i class="bi bi-list"></i>
-        </button>
-        <a href="../index.html" aria-label="Ir al inicio">
-            <img src="../assets/img/logo-desktop.png" alt="Bazar Maravillas Logo" class="logo-desktop">
-        </a>
-        <nav role="navigation" class="nav" id="nav" aria-label="Menú principal">
-            <button id="cerrar-hamburguesa" aria-label="expanded" aria-expanded="false">
-                <i class="bi bi-x-lg"></i>
-            </button>
-            <ul class="nav-list">
-                <li class="nav-link"><a href="../index.html">
-                    <i class="bi bi-house"></i>INICIO</a>
-                </li>
-                <li class="nav-link"><a href="../index.html#section-destacados">
-                    <i class="bi bi-star"></i>DESTACADOS</a>
-                </li>
-                <li class="nav-link"><a href="">
-                    <i class="bi bi-telephone-inbound"></i>CONTACTO</a>
-                </li>
+
+    <header role="banner" id="header">
+        <nav id="nav" role="navigation" aria-label="Menú principal">
+            <ul>
+                <li class="nav-link"><a href="../index.html">INICIO</a></li>
+                <li class="nav-link"><a href="../index.html#section-destacados">DESTACADOS</a></li>
+                <li class="nav-link"><a href="products.html">PRODUCTOS</a></li>
+                <li class="nav-link"><a href="">CONTACTO</a></li>
+                <li class="nav-link linkCarrito"><a href="carrito.html" class="cart-icon" aria-label="Ver carrito de compras">
+                🛒 <span id="contador-carrito" aria-live="polite">0</span></a></li>
             </ul>
         </nav>
-        <a href="carrito.html" class="cart-icon linkCarrito" aria-label="Ver carrito">
-            <i class="bi bi-cart"></i><span id="contador-carrito" aria-live="polite">0</span>
-        </a>
     </header>
 
     <main class="main-productos">
