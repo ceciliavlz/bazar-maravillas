@@ -2,7 +2,7 @@
 @import url("https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@100..900&display=swap");
 
 :root {
-  --main-height: calc(100vh - 65px - 120px);
+  --main-height: calc(100vh - 4.06rem - 7.5rem);
   --color-primary: #1a2c44;
   --color-accent: #da6026;
   --color-bg: #f1f3f4;
@@ -18,14 +18,14 @@
   position: absolute;
   background: rgb(253, 0, 0);
   height: 0rem;
-  width: 0px;
-  padding: 10px;
+  width: 0rem;
+  padding: 0.625rem;
   justify-content: center;
   align-items: center;
   border-radius: 100%;
-  top: -10px;
-  right: -10px;
-  font-size: 10px;
+  top: -0.625rem;
+  right: -0.625rem;
+  font-size: 0.625rem;
   font-weight: 400;
   transition: all ease-in-out .3s;
 }
@@ -72,11 +72,13 @@ header {
   display: flex;
   gap: 2rem;
 }
+
 /* nav-links */
 .nav-link {
   list-style: none;
 }
-.nav-link i{
+
+.nav-link i {
   display: none;
 }
 
@@ -99,7 +101,8 @@ header {
   color: white;
 }
 
-#menu-hamburguesa, #cerrar-hamburguesa{
+#menu-hamburguesa,
+#cerrar-hamburguesa {
   display: none;
 }
 
@@ -117,8 +120,8 @@ footer {
   flex-direction: column;
   justify-content: center;
   text-align: center;
-  background-color: #a3abb4;
-  color: var(--color-text);
+  background-color: var(--color-primary);
+  color: var(--color-bg);
   align-items: center;
   font-weight: 400;
   font-size: small;
@@ -175,7 +178,7 @@ footer {
   padding: 1rem;
   gap: 3rem;
 
-  
+
   @media screen and (max-width: 550px) {
     display: grid;
     grid-template-columns: 1fr;
@@ -211,16 +214,16 @@ footer {
 .titulo-catalogo {
   color: var(--color-text);
   font-size: large;
-  margin-top: 25px;
+  margin-top: 1.5625;
 }
 
 #productos {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
-  gap: 15px;
+  gap: 0.9375;
   width: 100%;
 
-  @media screen and (max-width: 550px){
+  @media screen and (max-width: 550px) {
     grid-template-columns: 1fr 1fr;
   }
 }
@@ -229,21 +232,21 @@ footer {
   display: flex;
   flex-direction: column;
   background: white;
-  padding: 15px;
+  padding: 0.9375rem;
   width: 100%;
   transition: box-shadow ease-in-out 0.3s;
 
   img {
     width: 100%;
-    height: 260px;
+    height: 16.25rem;
     object-fit: cover;
   }
 
   .producto-detalles {
-    margin-top: 5px;
+    margin-top: 0.3125rem;
     display: grid;
     grid-template-rows: 1fr 1fr 1fr;
-    height: 190px;
+    height: 11.875rem;
 
     div {
       display: flex;
@@ -292,13 +295,13 @@ footer {
   }
 
   button {
-    margin-top: 15px;
+    margin-top: 0.9375rem;
   }
 
 }
 
 .producto:hover {
-  box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.2);
+  box-shadow: 0.125rem 0.125rem 0.625rem rgba(0, 0, 0, 0.2);
 }
 
 /*PRODUCTO INDIVIDUAL*/
@@ -385,30 +388,30 @@ footer {
 /* PAGINA CARRITO */
 #seccion-carrito {
   display: flex;
-  padding: 30px;
+  padding: 1.875rem;
   justify-content: center;
   width: 100%;
 
 }
 
 .mi-compra {
-  margin-right: 20px;
+  margin-right: 1.25rem;
   width: 65%;
   display: flex;
   flex-direction: column;
-  padding: 30px;
-  padding-top: 20px;
+  padding: 1.875rem;
+  padding-top: 1.25rem;
 
   ul {
     display: flex;
     flex-direction: column;
-    gap: 20px;
+    gap: 1.25rem;
     list-style: none;
-    margin-top: 20px;
+    margin-top: 1.25rem;
 
     li {
-      padding: 10px;
-      padding-right: 20px;
+      padding: 0.625rem;
+      padding-right: 1.25rem;
       background-color: white;
 
 
@@ -418,14 +421,15 @@ footer {
 
         img {
           object-fit: contain;
-          height: 100px;
-          width: 100px;
+          height: 6.25rem;
+          width: 6.25rem;
         }
 
         .nombre {
           display: flex;
           font-weight: 700;
-          padding-left: 10px;
+          padding-left: 0.625rem;
+          font-size: 1.2rem;
         }
 
         .cantidad {
@@ -456,23 +460,23 @@ footer {
 
 .detalles-resumen {
   background-color: white;
-  margin-right: 40px;
-  padding: 20px;
+  margin-right: 2.5rem;
+  padding: 1.25rem;
   height: max-content;
   width: 35%;
 
   ul {
-    margin-top: 20px;
+    margin-top: 1.25rem;
     list-style: none;
     display: flex;
     flex-direction: column;
-    gap: 20px;
+    gap: 1.25rem;
 
     li {
       display: flex;
       justify-content: space-between;
-      border-bottom: 1px solid rgb(204, 204, 204);
-      padding-bottom: 5px;
+      border-bottom: 0.0625rem solid rgb(204, 204, 204);
+      padding-bottom: 0.3125rem;
     }
 
     .total {
@@ -508,9 +512,11 @@ footer {
 
 /*en 700px aprox se empieza a romper el carrito*/
 @media screen and (max-width: 700px) {
-  #menu-hamburguesa, #cerrar-hamburguesa{
+
+  #menu-hamburguesa,
+  #cerrar-hamburguesa {
     display: block;
-    border:0;
+    border: 0;
     font-size: 1.5rem;
     color: var(--color-bg);
     background-color: transparent;
@@ -518,7 +524,7 @@ footer {
     width: 15%;
   }
 
-  header{
+  header {
     display: grid;
     grid-template-columns: 1fr auto 1fr;
     padding: 0 1rem 0 1rem;
@@ -526,8 +532,8 @@ footer {
     z-index: auto;
   }
 
-  .nav{
-    opacity:0;
+  .nav {
+    opacity: 0;
     visibility: hidden;
 
     display: flex;
@@ -539,34 +545,33 @@ footer {
     padding: 2rem;
     bottom: 0;
     background-color: var(--color-primary);
-    box-shadow: 0 0 0 100vmax rgba(0, 0, 0,0.4);
+    box-shadow: 0 0 0 100vmax rgba(0, 0, 0, 0.4);
     width: 50%;
     height: 100vh;
     transform: translateX(-100%);
     transition: transform 0.2s ease;
   }
 
-  .nav.visible{
+  .nav.visible {
     opacity: 1;
     visibility: visible;
     transform: translateX(0);
   }
 
-  .nav.menu-cerrado{
+  .nav.menu-cerrado {
     transform: translateX(-100%);
   }
 
-  .nav-list{
+  .nav-list {
     flex-direction: column;
   }
 
-  .nav-link 
-    i {
-      display: inline;
-      font-size: larger;
-      margin-right: 1rem;
-    }
-  
+  .nav-link i {
+    display: inline;
+    font-size: larger;
+    margin-right: 1rem;
+  }
+
   .section-bienvenida {
     div img {
       display: flex;
@@ -575,6 +580,7 @@ footer {
       object-fit: contain;
     }
   }
+  
   #section-destacados {
     padding: 1rem 1rem 5rem 1rem;
   
