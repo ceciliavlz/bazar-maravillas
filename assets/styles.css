@@ -197,11 +197,11 @@ footer {
   }
 
   select {
-    margin-top: 15px;
-    border: 1px solid var(--color-text);
+    margin-top: 1rem;
+    border: 0.1rem solid var(--color-text);
     display: flex;
     width: 100%;
-    padding: 5px;
+    padding: 1rem;
   }
 
   label {
@@ -314,7 +314,7 @@ footer {
 #detalle-producto {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  padding: 20px;
+  padding: 1.3rem;
 
   .imagen {
     display: flex;
@@ -330,18 +330,18 @@ footer {
   .detalles {
     display: flex;
     flex-direction: column;
-    gap: 30px;
+    gap: 1rem;
 
     .disponibilidad {
-      font-size: 14px;
+      font-size: 1rem;
       display: flex;
       justify-content: center;
       align-items: center;
-      padding: 5px;
+      padding: 0.4rem;
       width: max-content;
       color: var(--color-text);
       font-weight: 400;
-      margin-bottom: 10px;
+      margin-bottom: 0.7rem;
     }
 
     .hay-stock {
@@ -494,13 +494,13 @@ footer {
 .carrito-vacio {
   display: flex;
   flex-direction: column;
-  padding: 20px;
+  padding: 1.5rem;
   align-items: center;
-  gap: 30px;
+  gap: 2rem;
 
   a {
     text-decoration: none;
-    padding: 12px;
+    padding: 0.8rem;
   }
 }
 
@@ -580,10 +580,10 @@ footer {
       object-fit: contain;
     }
   }
-
+  
   #section-destacados {
     padding: 1rem 1rem 5rem 1rem;
-
+  
     h2 {
       color: var(--color-text);
       font-weight: 300;
