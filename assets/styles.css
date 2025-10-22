@@ -178,8 +178,8 @@ footer {
   flex-direction: column;
   justify-content: center;
   text-align: center;
-  background-color: #a3abb4;
-  color: var(--color-text);
+  background-color: var(--color-primary);
+  color: var(--color-bg);
   align-items: center;
   font-weight: 400;
   font-size: small;
