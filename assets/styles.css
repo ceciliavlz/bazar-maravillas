@@ -201,7 +201,8 @@ footer {
     border: 0.1rem solid var(--color-text);
     display: flex;
     width: 100%;
-    padding: 1rem;
+    height: auto;
+    padding: 0.3rem;
   }
 
   label {
@@ -220,7 +221,7 @@ footer {
 #productos {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
-  gap: 0.9375;
+  gap: 0.9375rem;
   width: 100%;
 
   @media screen and (max-width: 550px) {
