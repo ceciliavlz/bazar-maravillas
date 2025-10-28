@@ -1,7 +1,8 @@
-import { navPages } from "./utils/pageUtils.js";
+import { menuHamburguesa,navPages } from "./utils/pageUtils.js";
 
 function initContacto() {
   navPages();
+  menuHamburguesa();
 
   const form = document.getElementById("contactForm");
   if (!form) return;
