@@ -29,8 +29,6 @@
 .campo-form textarea {
   width: 100%;
   padding: 0.6rem;
-  border: 1px solid #ccc;
-  border-radius: 4px;
   font-family: inherit;
 }
 
