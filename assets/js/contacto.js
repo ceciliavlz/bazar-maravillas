@@ -17,18 +17,20 @@ function initContacto() {
 
     let valido = true;
 
-    if (!nombre.value.trim()) {
-      mostrarError(nombre, "Por favor, ingresá tu nombre.");
+    const regexNombre = /^[a-zA-ZÑñáÁéÉíÍóÓúÚ ]{3,50}$/;
+    if (!regexNombre.test(nombre.value.trim())) {
+      mostrarError(nombre, "El nombre debe tener al menos 3 letras y no contener números.");
       valido = false;
     }
 
-    if (!email.value.includes("@")) {
+    const regexEmail = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!regexEmail.test(email.value.trim())) {
       mostrarError(email, "Ingresá un correo válido.");
       valido = false;
     }
 
-    if (!mensaje.value.trim()) {
-      mostrarError(mensaje, "El mensaje no puede estar vacío.");
+    if (mensaje.value.trim().length < 10) {
+      mostrarError(mensaje, "El mensaje debe tener al menos 10 caracteres.");
       valido = false;
     }
 
@@ -36,6 +38,7 @@ function initContacto() {
       mostrarMensajeExito();
       form.reset();
     }
+    
   });
 }
 

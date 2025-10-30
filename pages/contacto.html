@@ -31,7 +31,7 @@
                   placeholder="Tu nombre" 
                   minlength="3"
                   maxlength="50" 
-                  pattern="[a-zA-Z ]{3,50}"
+                  pattern="^[a-zA-ZÑñáÁéÉíÍóÓúÚ ]{3,50}$"
                   required>
           <span class="error">Por favor, ingresá tu nombre.</span>
         </div>
@@ -44,7 +44,13 @@
 
         <div class="campo-form">
           <label for="mensaje">Mensaje</label>
-          <textarea id="mensaje" name="mensaje" rows="4" placeholder="Escribí tu mensaje..." required></textarea>
+          <textarea
+            id="mensaje"
+            name="mensaje"
+            rows="4"
+            placeholder="Escribí tu mensaje..."
+            minlength="10"
+            required></textarea>
           <span class="error">El mensaje no puede estar vacío.</span>
         </div>
 
