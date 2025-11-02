@@ -17,7 +17,7 @@ function tarjetaDestacado(p) {
   articulo.setAttribute("aria-labelledby", `titulo-prod-${p.id}`);
   articulo.setAttribute("aria-describedby", `descripcion-prod-${p.id}`);
   articulo.innerHTML = `
-  <img src=${p.img.baja} alt=${p.nombre}>
+  <img src=${p.img.baja.slice(3)} alt=${p.nombre}>
         <div class="producto-detalles"> 
             <div>
                 <h4 id="titulo-prod-${p.id}" class="nombre-producto">${p.nombre}</h4>
