@@ -179,7 +179,7 @@ footer {
   gap: 3rem;
 
 
-  @media screen and (max-width: 550px) {
+  @media screen and (max-width: 800px) {
     display: grid;
     grid-template-columns: 1fr;
   }
@@ -514,7 +514,7 @@ footer {
 }
 
 /*en 700px aprox se empieza a romper el carrito*/
-@media screen and (max-width: 700px) {
+@media screen and (max-width: 800px) {
 
   #menu-hamburguesa,
   #cerrar-hamburguesa {
