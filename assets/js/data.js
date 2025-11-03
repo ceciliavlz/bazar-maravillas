@@ -8,8 +8,8 @@ export const productos = [
     stock: 8,
     precio: 250000,
     img: {
-      alta: "../assets/img/mesa-madera.webp",
-      baja: "../assets/img/mesa-madera_300x300.webp",
+      alta: ajustarImgPath("../assets/img/mesa-madera.webp"),
+      baja: ajustarImgPath("../assets/img/mesa-madera_300x300.webp"),
     }
   },
   {
