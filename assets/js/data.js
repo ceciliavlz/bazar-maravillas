@@ -8,8 +8,8 @@ export const productos = [
     stock: 8,
     precio: 250000,
     img: {
-      alta: ajustarImgPath("../assets/img/mesa-madera.webp"),
-      baja: ajustarImgPath("../assets/img/mesa-madera_300x300.webp"),
+      alta: "../assets/img/mesa-madera.webp",
+      baja: "../assets/img/mesa-madera_300x300.webp",
     }
   },
   {
@@ -20,8 +20,8 @@ export const productos = [
     stock: 30,
     precio: 4000,
     img: {
-      alta: ajustarImgPath("../assets/img/planta.webp"),
-      baja: ajustarImgPath("../assets/img/planta_300x300.webp"),
+      alta: "../assets/img/planta.webp",
+      baja: "../assets/img/planta_300x300.webp",
     }
   },
   {
@@ -32,8 +32,8 @@ export const productos = [
     stock: 20,
     precio: 4000,
     img: {
-      alta: ajustarImgPath("../assets/img/organizador.webp"),
-      baja: ajustarImgPath("../assets/img/organizador_300x300.webp"),
+      alta: "../assets/img/organizador.webp",
+      baja: "../assets/img/organizador_300x300.webp",
     }
   },
   {
@@ -44,8 +44,8 @@ export const productos = [
     stock: 12,
     precio: 9500,
     img: {
-      alta: ajustarImgPath("../assets/img/decoracion-minimalista.webp"),
-      baja: ajustarImgPath("../assets/img/decoracion-minimalista_300x300.webp"),
+      alta: "../assets/img/decoracion-minimalista.webp",
+      baja: "../assets/img/decoracion-minimalista_300x300.webp",
     }
   },
   {
@@ -56,8 +56,8 @@ export const productos = [
     stock: 20,
     precio: 10500,
     img: {
-      alta: ajustarImgPath("../assets/img/planificador.webp"),
-      baja: ajustarImgPath("../assets/img/planificador_300x300.webp"),
+      alta: "../assets/img/planificador.webp",
+      baja: "../assets/img/planificador_300x300.webp",
     }
   },
   {
@@ -68,8 +68,8 @@ export const productos = [
     stock: 10,
     precio: 100000,
     img: {
-      alta: ajustarImgPath("../assets/img/persiana.webp"),
-      baja: ajustarImgPath("../assets/img/persiana_300x300.webp"),
+      alta: "../assets/img/persiana.webp",
+      baja: "../assets/img/persiana_300x300.webp",
     }
   },
   {
@@ -80,8 +80,8 @@ export const productos = [
     stock: 30,
     precio: 20500,
     img: {
-      alta: ajustarImgPath("../assets/img/utensilios.webp"),
-      baja: ajustarImgPath("../assets/img/utensilios_300x300.webp"),
+      alta: "../assets/img/utensilios.webp",
+      baja: "../assets/img/utensilios_300x300.webp",
     }
   },
   {
@@ -92,8 +92,8 @@ export const productos = [
     stock: 18,
     precio: 8000,
     img: {
-      alta: ajustarImgPath("../assets/img/mate-acero.webp"),
-      baja: ajustarImgPath("../assets/img/mate-acero_300x300.webp"),
+      alta: "../assets/img/mate-acero.webp",
+      baja: "../assets/img/mate-acero_300x300.webp",
     }
   },
   {
@@ -104,8 +104,8 @@ export const productos = [
     stock: 10,
     precio: 52000,
     img: {
-      alta: ajustarImgPath("../assets/img/olla.webp"),
-      baja: ajustarImgPath("../assets/img/olla_300x300.webp"),
+      alta: "../assets/img/olla.webp",
+      baja: "../assets/img/olla_300x300.webp",
     }
   },
   {
@@ -116,8 +116,8 @@ export const productos = [
     stock: 15,
     precio: 40000,
     img: {
-      alta: ajustarImgPath("../assets/img/vajilla.webp"),
-      baja: ajustarImgPath("../assets/img/vajilla_300x300.webp"),
+      alta: "../assets/img/vajilla.webp",
+      baja: "../assets/img/vajilla_300x300.webp",
     }
   },
   {
@@ -128,8 +128,8 @@ export const productos = [
     stock: 20,
     precio: 45000,
     img: {
-      alta: ajustarImgPath("../assets/img/sabana-gris.webp"),
-      baja: ajustarImgPath("../assets/img/sabana-gris_300x300.webp"),
+      alta: "../assets/img/sabana-gris.webp",
+      baja: "../assets/img/sabana-gris_300x300.webp",
     }
   },
   {
@@ -140,8 +140,8 @@ export const productos = [
     stock: 8,
     precio: 30000,
     img: {
-      alta: ajustarImgPath("../assets/img/cubrecama.webp"),
-      baja: ajustarImgPath("../assets/img/cubrecama_300x300.webp"),
+      alta: "../assets/img/cubrecama.webp",
+      baja: "../assets/img/cubrecama_300x300.webp",
     }
   },
   {
@@ -152,8 +152,8 @@ export const productos = [
     stock: 10,
     precio: 15000,
     img: {
-      alta: ajustarImgPath("../assets/img/5-plantas.webp"),
-      baja: ajustarImgPath("../assets/img/5-plantas_300x300.webp"),
+      alta: "../assets/img/5-plantas.webp",
+      baja: "../assets/img/5-plantas_300x300.webp",
     }
   },
   {
@@ -164,16 +164,8 @@ export const productos = [
     stock: 15,
     precio: 10000,
     img: {
-      alta: ajustarImgPath("../assets/img/macetas.webp"),
-      baja: ajustarImgPath("../assets/img/macetas_300x300.webp"),
+      alta: "../assets/img/macetas.webp",
+      baja: "../assets/img/macetas_300x300.webp",
     }
   }
 ];
-
-function ajustarImgPath(pathFromPages) {
- if (window.location.pathname.includes("/pages")) {
-  return pathFromPages;
- } else {
-  return pathFromPages.slice(3);
- }
-}
