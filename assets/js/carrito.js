@@ -25,15 +25,11 @@ function crearProductoFila(p){
             <div class="nombre"> 
                 <p>${nombre}</p>
             </div>
-            <div class="cantidad" aria-label="Cantidad seleccionada">
-                <p>Cant. ${cantidad}</p>
-            </div>
             <div class="precios">
-                <p>P. unitario $${precio.toLocaleString("es-AR")}</p>
-                <p>P. total $${(precio * cantidad).toLocaleString("es-AR")}</p>
+                <p>$${precio.toLocaleString("es-AR")} x ${cantidad.toLocaleString("es-AR")} = $${(precio * cantidad).toLocaleString("es-AR")}</p>
             </div>
             <button class="eliminar-del-carrito boton" aria-label="Eliminar ${nombre} del carrito">
-            Eliminar
+            🗑
             </button>
         </div>
     `
