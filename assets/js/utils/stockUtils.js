@@ -1,4 +1,4 @@
-import { getProductos } from "./productoUtils.js";
+import { getProductos } from "../../../api/api.js";
 
 function getArrayStock() {
     if (localStorage.getItem("arrayStock") === null) {
@@ -31,8 +31,8 @@ export function updateProductStock(id, stock){
     localStorage.setItem("arrayStock", JSON.stringify(arrayStock));
 }
 
-export function crearArrayStock() {
-    const productos = getProductos();
+export async function crearArrayStock() {
+    const productos = await getProductos();
     let arrayStock = [];
 
     for (let producto of productos) {

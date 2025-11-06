@@ -1,5 +1,6 @@
 import { cantidadCarrito } from "./utils/cartUtils.js";
-import { productos } from "./data.js";
+//import { productos } from "./data.js";
+import { getProductos } from "../../api/api.js";
 import { getProductStock } from "./utils/stockUtils.js";
 import { setPageKeywords } from "./utils/pageUtils.js";
 import { menuHamburguesa, navPages } from "./utils/pageUtils.js";
@@ -35,10 +36,13 @@ function cardProducto(p) {
   return articulo;
 }
 
-function initCatalogo() {
+async function initCatalogo() {
     const cont = document.getElementById("productos");
     if (!cont) return;
     cont.innerHTML = "";
+    const productos = await getProductos();
+
+
     productos.forEach(p => cont.appendChild(cardProducto(p)));
     
     navPages();
@@ -46,15 +50,15 @@ function initCatalogo() {
     menuHamburguesa();
 }
 
-function filtrarProductos(){
+async function filtrarProductos(){
     const categoria = localStorage.getItem("filtro");
     const cont = document.getElementById("productos");
     cont.innerHTML = "";
+    const productos = await getProductos();
 
-    const filtrados = categoria ? productos.filter((p)=> p.categoria === categoria): productos;
+    const filtrados = (categoria ? productos.filter((p)=> p.categoria === categoria) : productos);
 
     filtrados.forEach(p => {p.stock = cont.appendChild(cardProducto(p))});  
-
 }
 
 function actualizarFiltroPersistente() {
