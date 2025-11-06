@@ -386,6 +386,14 @@ footer {
       color: var(--color-text);
     }
   }
+
+  @media screen and (max-width: 550px) {
+    grid-template-columns: 1fr;
+    
+    .imagen {
+      padding-bottom: 2rem;
+    }
+  }
 }
 
 /* PAGINA CARRITO */
@@ -395,6 +403,9 @@ footer {
   justify-content: center;
   width: 100%;
 
+  @media screen and (max-width: 800px) {
+    flex-direction: column;
+  }
 }
 
 .mi-compra {
@@ -420,7 +431,7 @@ footer {
 
       div {
         display: grid;
-        grid-template-columns: 1fr 1.5fr 1fr 2fr .5fr;
+        grid-template-columns: .5fr 2fr .5fr .5fr;
 
         img {
           object-fit: contain;
@@ -433,12 +444,7 @@ footer {
           font-weight: 700;
           padding-left: 0.625rem;
           font-size: 1.2rem;
-        }
-
-        .cantidad {
-          display: flex;
-          justify-self: center;
-          color: #5b545f;
+          padding-right: 1rem;
         }
 
         .precios {
@@ -458,6 +464,11 @@ footer {
         }
       }
     }
+  }
+
+  @media screen and (max-width: 800px) {
+    width: 100%;
+    padding: 1rem;
   }
 }
 
@@ -491,6 +502,21 @@ footer {
       font-weight: 700;
     }
   }
+
+  @media screen and (max-width: 800) {
+    width: 100vw;;
+  }
+
+  @media screen and (max-width: 800px) {
+    width: 100%;
+    padding: 1rem;
+  }
+}
+
+.precios {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
 }
 
 /* carrito vacio */
