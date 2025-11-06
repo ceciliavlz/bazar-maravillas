@@ -64,7 +64,7 @@ export function navPages() {
             <li class="nav-link"><a href="products.html">
                 <i class="bi bi-bag"></i>PRODUCTOS</a>
             </li>
-            <li class="nav-link"><a href="/pages/contacto.html">
+            <li class="nav-link"><a href="contacto.html">
                 <i class="bi bi-telephone-inbound"></i>CONTACTO</a>
             </li>
         </ul>
