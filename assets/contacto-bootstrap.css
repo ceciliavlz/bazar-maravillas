@@ -8,10 +8,10 @@
   flex-direction: column;
   gap: 1.5rem;
   padding: 1rem;
+}
 
-  form{
-    min-width: 90%;
-  }
+form {
+  min-width: 90%;
 }
 
 .campo-form {
@@ -60,4 +60,14 @@
   color: #0a0;
   margin-top: 1rem;
   font-weight: bold;
+}
+
+.nav-list {
+  padding: 0;
+  margin: 0;
+}
+
+.nav-link {
+  padding: 0;
+  margin: 0;
 }
