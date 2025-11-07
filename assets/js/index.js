@@ -66,11 +66,11 @@ document.addEventListener("DOMContentLoaded", initIndex);
 window.addEventListener("storage", initIndex);
 
 abrirHamburguesa.addEventListener("click", () => {
-  const nav = document.querySelector("#nav-list");
+  const nav = document.querySelector(".nav-list");
   nav.classList.add("visible");
 })
 
 cerrarHamburguesa.addEventListener("click", () => {
-  const nav = document.querySelector("#nav-list");
+  const nav = document.querySelector(".nav-list");
   nav.classList.remove("visible");
 })
