@@ -50,6 +50,11 @@ function seccionProducto(){
                 <p>Codigo: ${p.id}</p>
             </div>
         </div>`
+
+        const botonCarrito = document.getElementById("boton-carrito");
+        botonCarrito.addEventListener("click", () => { 
+            alert(`Se ha añadido ${document.getElementById('cantidad').value} x ${p.nombre} al carrito`);
+        });
 }
 
 function actualizarStock(e){
