@@ -84,3 +84,10 @@ function initDetalle(){
 
 document.addEventListener("DOMContentLoaded", initDetalle());
 document.addEventListener("submit", e => actualizarStock(e));
+window.addEventListener("storage", (e) => {
+    if (e.key === "arrayStock") {
+        if (window.location.pathname.includes("/pages/producto")) {
+            initDetalle()
+        }
+    }
+});

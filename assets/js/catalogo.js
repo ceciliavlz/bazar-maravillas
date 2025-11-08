@@ -72,6 +72,4 @@ window.addEventListener("storage", initCatalogo);
 
 document.getElementById("boton-filtrar").addEventListener("click", filtrarProductos);
 
-document.addEventListener("DOMContentLoaded", filtrarProductos)
-
 document.getElementById("filtro-categoria").addEventListener("change", actualizarFiltroPersistente);
