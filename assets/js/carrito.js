@@ -148,3 +148,11 @@ document.addEventListener("DOMContentLoaded", () => {
         initCarrito();
     }
 });
+
+window.addEventListener("storage", (e) => {
+    if (e.key === "arrayCarrito") {
+        if (window.location.pathname.includes("/pages/carrito")) {
+            initCarrito();
+        }
+    }
+})
