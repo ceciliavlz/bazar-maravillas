@@ -66,7 +66,11 @@ async function pintarProductosCarrito(){
 
     document.querySelectorAll('.eliminar-del-carrito').forEach(b => {
         b.addEventListener('click', (e) => {
-            removeProductCarrito(b.parentElement.parentElement.parentElement.id);
+            let id = b.parentElement.parentElement.parentElement.id;
+            let p = productos.find(item => item.id === parseInt(id));
+            if (confirm(`Quieres eliminar ${p.cantidad} x ${p.nombre} de tu compra?`)) {
+                removeProductCarrito(id);
+            }
             initCarrito();
         });
     });
