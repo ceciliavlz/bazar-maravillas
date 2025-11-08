@@ -1,16 +1,16 @@
 import { getArrayCarrito, removeProductCarrito, cantidadCarrito } from "./utils/cartUtils.js";
-import { getProductById } from "./utils/productoUtils.js";
+import { getProductById } from "../../api/api.js";
 import { setPageKeywords } from "./utils/pageUtils.js";
 import { menuHamburguesa,navPages } from "./utils/pageUtils.js";
 
 setPageKeywords();
 
-export function obtenerProductosCarrito(){
+export async function obtenerProductosCarrito(){
     const carrito = getArrayCarrito();
     let productos = [];
 
     for(let productoCarrito of carrito){
-        const producto = getProductById(productoCarrito.id);
+        const producto = await getProductById(productoCarrito.id);
         productos.push({...producto, cantidad: productoCarrito.cantidad});
     }
 
@@ -40,7 +40,7 @@ function crearProductoFila(p){
     `
 };
 
-function pintarProductosCarrito(){
+async function pintarProductosCarrito(){
     const seccionCarrito = document.getElementById('seccion-carrito');
 
     const compra = document.createElement('div');
@@ -48,7 +48,7 @@ function pintarProductosCarrito(){
     compra.setAttribute('aria-label', 'Productos en el carrito');
     compra.innerHTML = `<h2>MIS COMPRAS</h2>`;
 
-    const productos = obtenerProductosCarrito();
+    const productos = await obtenerProductosCarrito();
     
     const listaProductos = document.createElement('ul');
     listaProductos.setAttribute('role', 'list');
@@ -72,14 +72,14 @@ function pintarProductosCarrito(){
     });
 }
 
-function pintarResumenCompra(){
+async function pintarResumenCompra(){
     const seccionCarrito = document.getElementById('seccion-carrito');
 
     const resumen = document.createElement('div');
     resumen.className = "detalles-resumen";
     resumen.setAttribute('aria-label', 'Resumen de compra');
 
-    const productos = obtenerProductosCarrito();
+    const productos = await obtenerProductosCarrito();
 
     const subtotal = productos.reduce((acum, p) => {
         const { precio, cantidad } = p;
@@ -124,12 +124,12 @@ function pintarCarritoVacio(){
     seccionCarrito.appendChild(carritoVacio);
 }
 
-function pintarCarrito(){
+async function pintarCarrito(){
     const seccionCarrito = document.getElementById('seccion-carrito');
     seccionCarrito.innerHTML = '';
 
     pintarProductosCarrito();
-    pintarResumenCompra();
+    await pintarResumenCompra();
 }
 
 function initCarrito(){

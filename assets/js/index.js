@@ -1,9 +1,10 @@
 import { cantidadCarrito } from "./utils/cartUtils.js";
-import { productos } from "./data.js";
-import { getProductos } from "./utils/productoUtils.js";
+//import { productos } from "./data.js";
+//import { getProductos } from "./utils/productoUtils.js";
 import { getProductStock } from "./utils/stockUtils.js";
 import { setPageKeywords } from "./utils/pageUtils.js";
 import { menuHamburguesa } from "./utils/pageUtils.js";
+import { getProductos } from "../../api/api.js";
 
 const abrirHamburguesa = document.querySelector("#menu-hamburguesa");
 const cerrarHamburguesa = document.querySelector("#cerrar-hamburguesa");
@@ -37,14 +38,16 @@ function tarjetaDestacado(p) {
   return articulo;
 }
 
-function initIndex() {
+async function initIndex() {
+  const productos = await getProductos();
+
   const cont = document.getElementById("productos");
   if (!cont) return;
 
   const indexUsadosSet = new Set();
 
   while(indexUsadosSet.size < 4){
-    let randomInt = Math.floor(Math.random() * getProductos().length);
+    let randomInt = Math.floor(Math.random() * productos.length);
     indexUsadosSet.add(randomInt);
   }
 
