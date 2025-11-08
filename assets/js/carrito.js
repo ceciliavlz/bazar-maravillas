@@ -22,15 +22,20 @@ function crearProductoFila(p){
     return `
         <div id="${id}" role="group" aria-labelledby="nombre-${id}">
             <img src="${img.baja}" alt="${nombre}"/>
+            <div class="nombre-precio"> 
             <div class="nombre"> 
                 <p>${nombre}</p>
             </div>
+            <div class="precio-y-eliminar">
             <div class="precios">
                 <p>$${precio.toLocaleString("es-AR")} x ${cantidad.toLocaleString("es-AR")} = $${(precio * cantidad).toLocaleString("es-AR")}</p>
             </div>
             <button class="eliminar-del-carrito boton" aria-label="Eliminar ${nombre} del carrito">
             🗑
             </button>
+            </div>
+            </div>
+
         </div>
     `
 };

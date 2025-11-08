@@ -407,16 +407,18 @@ footer {
   width: 100%;
 
   @media screen and (max-width: 800px) {
+    padding: 0;
+    margin: 0;
     flex-direction: column;
   }
 }
 
 .mi-compra {
   margin-right: 1.25rem;
-  width: 90%;
+  width: 100%;
   display: flex;
   flex-direction: column;
-  padding: 1.875rem;
+  padding: 0rem;
   padding-top: 1.25rem;
 
   ul {
@@ -442,10 +444,22 @@ footer {
           width: 6.25rem;
         }
 
+        .nombre-precio {
+          display: flex;
+          flex-direction: column;
+          width: 100%;
+          padding-left: 0.93rem;
+        }
+
+        .precio-y-eliminar {
+          display: flex;
+          justify-content: space-between;
+          align-items: start;
+        }
+
         .nombre {
           display: flex;
           font-weight: 700;
-          padding-left: 0.625rem;
           font-size: 1.2rem;
           padding-right: 1rem;
         }
@@ -453,6 +467,7 @@ footer {
         .precios {
           display: flex;
           flex-direction: column;
+          font-size: 1rem;
           color: #5b545f;
         }
 
@@ -472,6 +487,21 @@ footer {
   @media screen and (max-width: 800px) {
     width: 100%;
     padding: 1rem;
+
+    ul {
+      li {
+        div {
+          .nombre-precio {
+            width: 10rem;
+          }
+
+          .nombre {
+            padding-left: 0;
+            font-size: 0.8rem;
+          }
+        }
+      }
+    }
   }
 }
 
@@ -504,10 +534,6 @@ footer {
       color: var(--color-text);
       font-weight: 700;
     }
-  }
-
-  @media screen and (max-width: 800) {
-    width: 100%;
   }
 
   @media screen and (max-width: 800px) {
