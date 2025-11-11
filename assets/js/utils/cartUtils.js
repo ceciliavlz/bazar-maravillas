@@ -1,61 +1,85 @@
 import { getProductStock, updateProductStock } from "./stockUtils.js";
 
 export function crearArrayCarrito() {
-    let arrayCarrito = [];
-    localStorage.setItem("arrayCarrito", JSON.stringify(arrayCarrito));
+    let arrayCarrito = [];
+    localStorage.setItem("arrayCarrito", JSON.stringify(arrayCarrito));
 }
 
-export function cantidadCarrito(){
-    const arrayCarrito = getArrayCarrito();
-    const total = arrayCarrito.reduce((acum,p) => acum + p.cantidad,0);
 
-    let cantidad = document.getElementById("contador-carrito");
-    cantidad.textContent = total;
+function animateCartIcon() {
+    const cartIcon = document.querySelector('.cart-icon'); 
+    const cartCount = document.querySelector('#contador-carrito'); 
+    
+    if (cartIcon) {
+        cartIcon.classList.add('pulse');
+        setTimeout(() => {
+            cartIcon.classList.remove('pulse');
+        }, 500);
+    }
+    
+    if (cartCount) {
+        cartCount.classList.add('updated');
+        setTimeout(() => {
+            cartCount.classList.remove('updated');
+        }, 600);
+    }
+}
+
+
+export function cantidadCarrito(){
+    const arrayCarrito = getArrayCarrito();
+    const total = arrayCarrito.reduce((acum,p) => acum + p.cantidad,0);
+
+    let cantidad = document.getElementById("contador-carrito");
+    cantidad.textContent = total;
+
+  
+    animateCartIcon();
 }
 
 export function getArrayCarrito() {
-    if (localStorage.getItem("arrayCarrito") === null) {
-        crearArrayCarrito();
-    }
-   const arrayCarrito = JSON.parse(localStorage.getItem("arrayCarrito"));
+    if (localStorage.getItem("arrayCarrito") === null) {
+        crearArrayCarrito();
+    }
+   const arrayCarrito = JSON.parse(localStorage.getItem("arrayCarrito"));
 
-   return arrayCarrito;
+   return arrayCarrito;
 }
 
 function updateArrayCarrito(arrayCarrito) {
-    localStorage.setItem("arrayCarrito", JSON.stringify(arrayCarrito));
+    localStorage.setItem("arrayCarrito", JSON.stringify(arrayCarrito));
 }
 
 export function removeProductCarrito(id){
-    id = parseInt(id);
-    
-    const cantidadADevolver = getProductStock(id) + getProductCarrito(id).cantidad;
-    let arrayCarrito = getArrayCarrito().filter(product => product.id !== id);
+    id = parseInt(id);
+    
+    const cantidadADevolver = getProductStock(id) + getProductCarrito(id).cantidad;
+    let arrayCarrito = getArrayCarrito().filter(product => product.id !== id);
 
-    updateProductStock(id, cantidadADevolver);
-    updateArrayCarrito(arrayCarrito);
+    updateProductStock(id, cantidadADevolver);
+    updateArrayCarrito(arrayCarrito);
 }
 
 export function getProductCarrito(id) {
-    id = parseInt(id);
-    const arrayCarrito = getArrayCarrito();
-    const index = arrayCarrito.findIndex(product => product.id === id);
+    id = parseInt(id);
+    const arrayCarrito = getArrayCarrito();
+    const index = arrayCarrito.findIndex(product => product.id === id);
 
-    return arrayCarrito[index];
+    return arrayCarrito[index];
 }
 
 export function updateProductCarrito(id, cantidad) {
-    id = parseInt(id);
-    cantidad = parseInt(cantidad);
+    id = parseInt(id);
+    cantidad = parseInt(cantidad);
 
-    const arrayCarrito = getArrayCarrito();
-    const index = arrayCarrito.findIndex(product => product.id === +id);
+    const arrayCarrito = getArrayCarrito();
+    const index = arrayCarrito.findIndex(product => product.id === +id);
 
-    if (index === -1) {
-        arrayCarrito.push({id, cantidad});
-    } else {
-        arrayCarrito[index].cantidad += cantidad;
-    }
+    if (index === -1) {
+        arrayCarrito.push({id, cantidad});
+    } else {
+        arrayCarrito[index].cantidad += cantidad;
+    }
 
-    localStorage.setItem("arrayCarrito", JSON.stringify(arrayCarrito));
+    localStorage.setItem("arrayCarrito", JSON.stringify(arrayCarrito));
 }
