@@ -1,6 +1,6 @@
 import { getProductStock, updateProductStock } from "./stockUtils.js";
 
-function crearArrayCarrito() {
+export function crearArrayCarrito() {
     let arrayCarrito = [];
     localStorage.setItem("arrayCarrito", JSON.stringify(arrayCarrito));
 }
