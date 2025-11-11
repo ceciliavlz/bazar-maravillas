@@ -1,7 +1,7 @@
 const BASE_URL_FakeStoreAPI = "https://fakestoreapi.com";
-const BASE_URL_FakeStorePlatzi = "https://api.escuelajs.co/api/v1";
+const BASE_URL_FakeStorePlatzi = "https://api.escuelajs.co/api/v1"; //Hay que cambiar las categorias en el select de products.html
 
-const URL_API = BASE_URL_FakeStorePlatzi;
+const URL_API = BASE_URL_FakeStoreAPI;
 
 function adaptarDataAPI_Platzi(dataAPI){
     return {

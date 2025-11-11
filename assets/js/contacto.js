@@ -1,4 +1,4 @@
-import { menuHamburguesa,navPages } from "./utils/pageUtils.js";
+import { menuHamburguesa, navPages } from "./utils/pageUtils.js";
 
 function initContacto() {
   navPages();

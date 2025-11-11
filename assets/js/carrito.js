@@ -22,15 +22,20 @@ function crearProductoFila(p){
     return `
         <div id="${id}" role="group" aria-labelledby="nombre-${id}">
             <img src="${img.baja}" alt="${nombre}"/>
-            <div class="nombre"> 
-                <p>${nombre}</p>
+            <div class="nombre-precio"> 
+                <div class="nombre"> 
+                    <p>${nombre}</p>
+                </div>
+                <div class="precio-y-eliminar">
+                    <div class="precios">
+                        <p>$${precio.toLocaleString("es-AR")} x ${cantidad.toLocaleString("es-AR")} = $${(precio * cantidad).toLocaleString("es-AR")}</p>
+                    </div>
+                    <button class="eliminar-del-carrito boton" aria-label="Eliminar ${nombre} del carrito">
+                        🗑
+                    </button>
+                </div>
             </div>
-            <div class="precios">
-                <p>$${precio.toLocaleString("es-AR")} x ${cantidad.toLocaleString("es-AR")} = $${(precio * cantidad).toLocaleString("es-AR")}</p>
-            </div>
-            <button class="eliminar-del-carrito boton" aria-label="Eliminar ${nombre} del carrito">
-            🗑
-            </button>
+
         </div>
     `
 };
@@ -61,7 +66,11 @@ async function pintarProductosCarrito(){
 
     document.querySelectorAll('.eliminar-del-carrito').forEach(b => {
         b.addEventListener('click', (e) => {
-            removeProductCarrito(b.parentElement.id);
+            let id = b.parentElement.parentElement.parentElement.id;
+            let p = productos.find(item => item.id === parseInt(id));
+            if (confirm(`Quieres eliminar ${p.cantidad} x ${p.nombre} de tu compra?`)) {
+                removeProductCarrito(id);
+            }
             initCarrito();
         });
     });
@@ -143,3 +152,11 @@ document.addEventListener("DOMContentLoaded", () => {
         initCarrito();
     }
 });
+
+window.addEventListener("storage", (e) => {
+    if (e.key === "arrayCarrito") {
+        if (window.location.pathname.includes("/pages/carrito")) {
+            initCarrito();
+        }
+    }
+})

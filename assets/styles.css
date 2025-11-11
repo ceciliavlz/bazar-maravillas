@@ -175,7 +175,7 @@ footer {
 .main-productos {
   display: grid;
   grid-template-columns: 1fr 4fr;
-  padding: 1rem;
+  padding: 0;
   gap: 3rem;
 
 
@@ -215,17 +215,21 @@ footer {
 .titulo-catalogo {
   color: var(--color-text);
   font-size: large;
-  margin-top: 1.5625;
+  margin-top: 1.5625rem;
 }
 
 #productos {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
-  gap: 0.9375rem;
+  gap: 0.9rem;
   width: 100%;
 
   @media screen and (max-width: 550px) {
     grid-template-columns: 1fr 1fr;
+  }
+
+  @media screen and (max-width: 800px) {
+    grid-template-columns: 1fr 1fr 1fr;
   }
 }
 
@@ -233,7 +237,7 @@ footer {
   display: flex;
   flex-direction: column;
   background: white;
-  padding: 0.9375rem;
+  padding: 0.9rem;
   width: 100%;
   transition: box-shadow ease-in-out 0.3s;
 
@@ -259,6 +263,9 @@ footer {
   .nombre-producto {
     color: var(--color-text);
     font-size: medium;
+    max-width: 40vw;
+    margin: 0;
+    padding: 0;
     overflow: hidden;
     line-clamp: 2;
     display: -webkit-box;
@@ -404,16 +411,18 @@ footer {
   width: 100%;
 
   @media screen and (max-width: 800px) {
+    padding: 0;
+    margin: 0;
     flex-direction: column;
   }
 }
 
 .mi-compra {
   margin-right: 1.25rem;
-  width: 65%;
+  width: 100%;
   display: flex;
   flex-direction: column;
-  padding: 1.875rem;
+  padding: 0rem;
   padding-top: 1.25rem;
 
   ul {
@@ -439,11 +448,23 @@ footer {
           width: 6.25rem;
         }
 
+        .nombre-precio {
+          display: flex;
+          flex-direction: column;
+          width: 100%;
+          padding-left: 0.93rem;
+        }
+
+        .precio-y-eliminar {
+          display: flex;
+          justify-content: space-between;
+          align-items: start;
+        }
+
         .nombre {
           align-items: center;
           display: flex;
           font-weight: 700;
-          padding-left: 0.625rem;
           font-size: 1.2rem;
           padding-right: 1rem;
         }
@@ -451,6 +472,7 @@ footer {
         .precios {
           display: flex;
           flex-direction: column;
+          font-size: 1rem;
           color: #5b545f;
         }
 
@@ -470,6 +492,21 @@ footer {
   @media screen and (max-width: 800px) {
     width: 100%;
     padding: 1rem;
+
+    ul {
+      li {
+        div {
+          .nombre-precio {
+            width: 10rem;
+          }
+
+          .nombre {
+            padding-left: 0;
+            font-size: 0.8rem;
+          }
+        }
+      }
+    }
   }
 }
 
@@ -502,10 +539,6 @@ footer {
       color: var(--color-text);
       font-weight: 700;
     }
-  }
-
-  @media screen and (max-width: 800) {
-    width: 100vw;;
   }
 
   @media screen and (max-width: 800px) {
@@ -576,7 +609,7 @@ footer {
     bottom: 0;
     background-color: var(--color-primary);
     box-shadow: 0 0 0 100vmax rgba(0, 0, 0, 0.4);
-    width: 50%;
+    width: 60%;
     height: 100vh;
     transform: translateX(-100%);
     transition: transform 0.2s ease;
@@ -612,13 +645,12 @@ footer {
   }
   
   #section-destacados {
-    padding: 1rem 1rem 5rem 1rem;
+    padding: 1rem 0rem 5rem;
   
     h2 {
       color: var(--color-text);
       font-weight: 300;
       margin-bottom: 1.4rem;
-      margin-left: 1.4rem;
     }
   }
 }

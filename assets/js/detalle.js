@@ -50,6 +50,11 @@ function seccionProducto(){
                 <p>Codigo: ${p.id}</p>
             </div>
         </div>`
+
+        const botonCarrito = document.getElementById("boton-carrito");
+        botonCarrito.addEventListener("click", () => { 
+            alert(`Se ha añadido ${document.getElementById('cantidad').value} x ${p.nombre} al carrito`);
+        });
 }
 
 function actualizarStock(e){
@@ -79,3 +84,10 @@ function initDetalle(){
 
 document.addEventListener("DOMContentLoaded", initDetalle());
 document.addEventListener("submit", e => actualizarStock(e));
+window.addEventListener("storage", (e) => {
+    if (e.key === "arrayStock") {
+        if (window.location.pathname.includes("/pages/producto")) {
+            initDetalle()
+        }
+    }
+});
