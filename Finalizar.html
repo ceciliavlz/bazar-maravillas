@@ -1,0 +1,438 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Finalizar Compra - Bazar Maravillas</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background-color: #f9f9f9;
+            color: #333;
+            line-height: 1.6;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        /* Header */
+        header {
+            background-color: #fff;
+            padding: 20px 0;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+        
+        .logo {
+            text-align: center;
+            margin-bottom: 10px;
+        }
+        
+        .logo h1 {
+            font-size: 32px;
+            font-weight: bold;
+            color: #2c3e50;
+            letter-spacing: 1px;
+        }
+        
+        .logo p {
+            font-size: 14px;
+            color: #7f8c8d;
+            letter-spacing: 0.5px;
+        }
+        
+        hr {
+            border: none;
+            height: 1px;
+            background-color: #ecf0f1;
+            margin: 15px 0;
+        }
+        
+        nav {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+        }
+        
+        nav a {
+            text-decoration: none;
+            color: #2c3e50;
+            font-weight: 500;
+            font-size: 16px;
+            transition: color 0.3s;
+        }
+        
+        nav a:hover {
+            color: #3498db;
+        }
+        
+        /* Main Content */
+        .checkout-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 30px;
+            margin: 40px 0;
+        }
+        
+        .checkout-form-container, .order-summary {
+            background-color: #fff;
+            border-radius: 8px;
+            padding: 30px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+        }
+        
+        .checkout-form-container {
+            flex: 2;
+            min-width: 300px;
+        }
+        
+        .order-summary {
+            flex: 1;
+            min-width: 250px;
+        }
+        
+        h2 {
+            color: #2c3e50;
+            margin-bottom: 20px;
+            font-size: 22px;
+            border-bottom: 1px solid #ecf0f1;
+            padding-bottom: 10px;
+        }
+        
+        /* Form Styles */
+        .form-group {
+            margin-bottom: 20px;
+        }
+        
+        label {
+            display: block;
+            margin-bottom: 8px;
+            color: #2c3e50;
+            font-weight: 500;
+        }
+        
+        input, select, textarea {
+            width: 100%;
+            padding: 12px 15px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            font-size: 16px;
+            transition: border 0.3s;
+        }
+        
+        input:focus, select:focus, textarea:focus {
+            border-color: #3498db;
+            outline: none;
+        }
+        
+        .form-row {
+            display: flex;
+            gap: 15px;
+        }
+        
+        .form-row .form-group {
+            flex: 1;
+        }
+        
+        button {
+            background-color: #2c3e50;
+            color: white;
+            border: none;
+            padding: 14px 20px;
+            border-radius: 4px;
+            font-size: 16px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+            width: 100%;
+            font-weight: 500;
+        }
+        
+        button:hover {
+            background-color: #3498db;
+        }
+        
+        /* Order Summary */
+        .summary-item {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 15px;
+            padding-bottom: 15px;
+            border-bottom: 1px solid #ecf0f1;
+        }
+        
+        .summary-item.total {
+            font-weight: bold;
+            font-size: 18px;
+            border-bottom: none;
+            padding-bottom: 0;
+        }
+        
+        /* Success Message */
+        .success-message {
+            display: none;
+            text-align: center;
+            padding: 40px 20px;
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+            margin: 40px 0;
+        }
+        
+        .success-icon {
+            font-size: 60px;
+            color: #27ae60;
+            margin-bottom: 20px;
+        }
+        
+        .success-message h2 {
+            color: #27ae60;
+            border-bottom: none;
+            font-size: 28px;
+        }
+        
+        .order-number {
+            background-color: #f8f9fa;
+            padding: 10px 15px;
+            border-radius: 4px;
+            margin: 20px 0;
+            display: inline-block;
+            font-weight: bold;
+        }
+        
+        .success-actions {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin: 25px 0;
+        }
+        
+        .success-actions button {
+            width: auto;
+            padding: 10px 20px;
+        }
+        
+        .success-details {
+            max-width: 500px;
+            margin: 0 auto;
+            text-align: left;
+        }
+        
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+        
+        table td {
+            padding: 8px 0;
+            border-bottom: 1px solid #ecf0f1;
+        }
+        
+        table tr:last-child td {
+            border-bottom: none;
+        }
+        
+        .support-link {
+            color: #3498db;
+            text-decoration: none;
+        }
+        
+        .support-link:hover {
+            text-decoration: underline;
+        }
+        
+        /* Footer */
+        footer {
+            background-color: #2c3e50;
+            color: #ecf0f1;
+            text-align: center;
+            padding: 20px 0;
+            margin-top: 40px;
+            font-size: 14px;
+        }
+        
+        @media (max-width: 768px) {
+            .checkout-container {
+                flex-direction: column;
+            }
+            
+            .form-row {
+                flex-direction: column;
+                gap: 0;
+            }
+            
+            .success-actions {
+                flex-direction: column;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="logo">
+                <h1>BAZAR MARAVILLAS</h1>
+                <p>HOGAR • JARDIN • COCINA</p>
+            </div>
+            <hr>
+            <nav>
+                <a href="#">DESTACADOS</a>
+                <a href="#">PRODUCTOS</a>
+                <a href="#">CONTACTO</a>
+            </nav>
+        </div>
+    </header>
+
+    <div class="container">
+        <!-- Formulario de compra (visible inicialmente) -->
+        <div id="checkout-form-section">
+            <div class="checkout-container">
+                <div class="checkout-form-container">
+                    <h2>Información de envío</h2>
+                    <form id="checkout-form">
+                        <div class="form-group">
+                            <label for="nombre">Nombre completo</label>
+                            <input type="text" id="nombre" name="nombre" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="email">Correo electrónico</label>
+                            <input type="email" id="email" name="email" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="direccion">Dirección</label>
+                            <input type="text" id="direccion" name="direccion" required>
+                        </div>
+                        
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="ciudad">Ciudad</label>
+                                <input type="text" id="ciudad" name="ciudad" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="codigo-postal">Código postal</label>
+                                <input type="text" id="codigo-postal" name="codigo-postal" required>
+                            </div>
+                        </div>
+                        
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="telefono">Teléfono</label>
+                                <input type="tel" id="telefono" name="telefono" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="pais">País</label>
+                                <select id="pais" name="pais" required>
+                                    <option value="">Seleccionar país</option>
+                                    <option value="argentina">Argentina</option>
+                                    <option value="chile">Chile</option>
+                                    <option value="colombia">Colombia</option>
+                                    <option value="mexico">México</option>
+                                    <option value="peru">Perú</option>
+                                    <option value="espana">España</option>
+                                </select>
+                            </div>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="notas">Notas adicionales (opcional)</label>
+                            <textarea id="notas" name="notas" rows="3"></textarea>
+                        </div>
+                        
+                        <button type="submit">Finalizar compra</button>
+                    </form>
+                </div>
+                
+                <div class="order-summary">
+                    <h2>Resumen del pedido</h2>
+                    <div class="summary-item">
+                        <span>Productos (2)</span>
+                        <span>$8.100</span>
+                    </div>
+                    <div class="summary-item">
+                        <span>Envío</span>
+                        <span>Gratis</span>
+                    </div>
+                    <div class="summary-item">
+                        <span>IVA</span>
+                        <span>$420</span>
+                    </div>
+                    <div class="summary-item total">
+                        <span>Total</span>
+                        <span>$8.520</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Mensaje de confirmación (oculto inicialmente) -->
+        <div id="success-message" class="success-message">
+            <div class="success-icon">✓</div>
+            <h2>¡Compra finalizada con éxito!</h2>
+            <p>Gracias por tu compra. Tu pedido se confirmó y está en proceso de preparación. En breve recibirás un correo con los detalles.</p>
+            
+            <div class="order-number">Número de orden: #RM7804B0</div>
+            
+            <div class="success-actions">
+                <button>Seguir comprando</button>
+                <button>Imprimir comprobante</button>
+            </div>
+            
+            <div class="success-details">
+                <h3>Resumen del pedido</h3>
+                <table>
+                    <tr>
+                        <td>Items</td>
+                        <td>2</td>
+                    </tr>
+                    <tr>
+                        <td>Envío</td>
+                        <td>Gratis</td>
+                    </tr>
+                    <tr>
+                        <td>IVA</td>
+                        <td>$420</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Total</strong></td>
+                        <td><strong>$8.520</strong></td>
+                    </tr>
+                </table>
+                
+                <p>Recibirás un email con el detalle y el tracking cuando el paquete esté despachado.</p>
+                <p>¿Necesitás ayuda? <a href="#" class="support-link">Contactá al soporte</a></p>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <div class="container">
+            <p>BAZAR MARAVILLAS &copy; 2023 - Todos los derechos reservados</p>
+        </div>
+    </footer>
+
+    <script>
+        document.getElementById('checkout-form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            // Ocultar el formulario
+            document.getElementById('checkout-form-section').style.display = 'none';
+            
+            // Mostrar el mensaje de éxito
+            document.getElementById('success-message').style.display = 'block';
+            
+            // Desplazarse hacia el mensaje de éxito
+            document.getElementById('success-message').scrollIntoView({ behavior: 'smooth' });
+        });
+    </script>
+</body>
+</html>
