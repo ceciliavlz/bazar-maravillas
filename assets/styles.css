@@ -218,6 +218,12 @@ footer {
   margin-top: 1.5625rem;
 }
 
+.productos-index > .producto:nth-child(4) {
+  @media screen and (550px < width <= 800px) {
+    visibility: collapse;
+  }
+}
+
 #productos {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
