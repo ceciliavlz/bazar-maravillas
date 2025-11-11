@@ -1,4 +1,4 @@
-import { getArrayCarrito, removeProductCarrito, cantidadCarrito } from "./utils/cartUtils.js";
+import { getArrayCarrito, removeProductCarrito, cantidadCarrito, updateProductCarrito } from "./utils/cartUtils.js";
 import { getProductById } from "../../api/api.js";
 import { setPageKeywords } from "./utils/pageUtils.js";
 import { menuHamburguesa,navPages } from "./utils/pageUtils.js";
@@ -30,6 +30,15 @@ function crearProductoFila(p){
                     <div class="precios">
                         <p>$${precio.toLocaleString("es-AR")} x ${cantidad.toLocaleString("es-AR")} = $${(precio * cantidad).toLocaleString("es-AR")}</p>
                     </div>
+                    <form class="cambiar-cantidad" aria-label="Formulario para cambiar cantidad a comprar" action="input">
+                        <input
+                            type="number"
+                            class="cantidad"
+                            value="${cantidad}"
+                            min="1"
+                            max="${p.stock}"
+                            aria-describedby="stock-info-${p.id}">
+                    </form>
                     <button class="eliminar-del-carrito boton" aria-label="Eliminar ${nombre} del carrito">
                         🗑
                     </button>
@@ -71,6 +80,15 @@ async function pintarProductosCarrito(){
             if (confirm(`Quieres eliminar ${p.cantidad} x ${p.nombre} de tu compra?`)) {
                 removeProductCarrito(id);
             }
+            initCarrito();
+        });
+    });
+
+    document.querySelectorAll('.cantidad').forEach(form => {
+        form.addEventListener('change', () => {
+            let id = form.parentElement.parentElement.parentElement.parentElement.id;
+            let p = productos.find(item => item.id === parseInt(id));
+            updateProductCarrito(id, form.value - p.cantidad);
             initCarrito();
         });
     });
