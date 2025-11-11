@@ -5,7 +5,7 @@
   --main-height: calc(100vh - 4.06rem - 7.5rem);
   --color-primary: #1a2c44;
   --color-accent: #da6026;
-  --color-bg: #f1f3f4;
+  --color-bg: #e4e4e4;
   --color-text: #212529;
 }
 
@@ -440,6 +440,7 @@ footer {
         }
 
         .nombre {
+          align-items: center;
           display: flex;
           font-weight: 700;
           padding-left: 0.625rem;
