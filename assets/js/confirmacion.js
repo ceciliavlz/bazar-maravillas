@@ -87,7 +87,7 @@ function mensajeConfirmacion(){
         mensaje.innerHTML = `
         <h3>¡Compra confirmada!</h3>
         <p>Gracias <strong>${nombre}</strong> por elegir <strong>Bazar Maravillas</strong>.</p>
-        <p>La confirmación fue enviada a <strong>${email}</strong>.</p>
+        <p>La información de la compra fue enviada a <strong>${email}</strong>.</p>
         <p><em>ID de pedido:</em> <strong>#${idPedido}</strong></p>
         <a href="../index.html" class="boton">Volver al inicio</a>
         `;
