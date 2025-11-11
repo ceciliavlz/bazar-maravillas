@@ -1,8 +1,10 @@
 import { menuHamburguesa, navPages } from "./utils/pageUtils.js";
+import { cantidadCarrito } from "./utils/cartUtils.js";
 
 function initContacto() {
   navPages();
   menuHamburguesa();
+  cantidadCarrito();
 
   const form = document.getElementById("contactForm");
   if (!form) return;

@@ -78,7 +78,10 @@ async function pintarProductosCarrito(){
 
 async function pintarResumenCompra(){
     const seccionCarrito = document.getElementById('seccion-carrito');
+    seccionCarrito.appendChild(await resumenHTML());
+}
 
+export async function resumenHTML() {
     const resumen = document.createElement('div');
     resumen.className = "detalles-resumen";
     resumen.setAttribute('aria-label', 'Resumen de compra');
@@ -106,9 +109,12 @@ async function pintarResumenCompra(){
                 <p aria-live="polite">$${subtotal.toLocaleString("es-AR")}</p>
             </li>
         </ul>
+        <div class="botones-resumen">
+            <a href="../pages/confirmacion.html" class="boton btn-finalizar">Finalizar compra</a>
+            <a href="../pages/products.html" class="boton">Seguir comprando</a>
+        </div>
         `
-
-    seccionCarrito.appendChild(resumen);
+    return resumen
 }
 
 function pintarCarritoVacio(){
