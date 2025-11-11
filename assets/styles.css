@@ -175,7 +175,7 @@ footer {
 .main-productos {
   display: grid;
   grid-template-columns: 1fr 4fr;
-  padding: 0;
+  padding: 1rem;
   gap: 3rem;
 
 
@@ -224,12 +224,12 @@ footer {
   gap: 0.9rem;
   width: 100%;
 
-  @media screen and (max-width: 550px) {
-    grid-template-columns: 1fr 1fr;
-  }
-
   @media screen and (max-width: 800px) {
     grid-template-columns: 1fr 1fr 1fr;
+  }
+
+  @media screen and (max-width: 550px) {
+    grid-template-columns: 1fr 1fr;
   }
 }
 
@@ -240,6 +240,7 @@ footer {
   padding: 0.9rem;
   width: 100%;
   transition: box-shadow ease-in-out 0.3s;
+  min-width: 0; /* evita que el contenido expanda la columna */
 
   img {
     width: 100%;
@@ -250,7 +251,7 @@ footer {
   .producto-detalles {
     margin-top: 0.3125rem;
     display: grid;
-    grid-template-rows: 1fr 1fr 1fr;
+    grid-template-rows: auto auto 1fr;
     height: 11.875rem;
 
     div {
@@ -286,10 +287,13 @@ footer {
     font-size: small;
     overflow: hidden;
     display: -webkit-box;
-    line-clamp: 2;
     -webkit-line-clamp: 2;
     -webkit-box-orient: vertical;
     text-overflow: ellipsis;
+    min-height: 3em;
+    word-break: break-word;
+    overflow-wrap: anywhere;
+
   }
 
   .categoria-producto {
