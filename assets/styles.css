@@ -239,6 +239,7 @@ footer {
   background: white;
   padding: 0.9rem;
   width: 100%;
+  min-width: 0;
   transition: box-shadow ease-in-out 0.3s;
   min-width: 0; /* evita que el contenido expanda la columna */
 
@@ -256,6 +257,7 @@ footer {
 
     div {
       display: flex;
+      max-width: 8rem;
       flex-direction: column;
       justify-content: center;
     }
@@ -264,7 +266,6 @@ footer {
   .nombre-producto {
     color: var(--color-text);
     font-size: medium;
-    max-width: 40vw;
     margin: 0;
     padding: 0;
     overflow: hidden;
@@ -421,7 +422,13 @@ footer {
   }
 }
 
+#compras-titulo {
+  display: flex;
+  justify-content: space-between;
+}
+
 .mi-compra {
+  order: -1;
   margin-right: 1.25rem;
   width: 100%;
   display: flex;
@@ -462,7 +469,16 @@ footer {
         .precio-y-eliminar {
           display: flex;
           justify-content: space-between;
-          align-items: start;
+          align-items: center;
+
+          input {
+            align-self: center;
+            padding: 8px;
+            margin-right: 1rem;
+            border: 1px var(--color-text) solid;
+            color: var(--color-text);
+            border-radius: none;
+          }
         }
 
         .nombre {
@@ -477,6 +493,7 @@ footer {
           display: flex;
           flex-direction: column;
           font-size: 1rem;
+          margin-right: 3rem;
           color: #5b545f;
         }
 
