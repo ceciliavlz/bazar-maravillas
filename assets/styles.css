@@ -224,12 +224,12 @@ footer {
   gap: 0.9rem;
   width: 100%;
 
-  @media screen and (max-width: 550px) {
-    grid-template-columns: 1fr 1fr;
-  }
-
   @media screen and (max-width: 800px) {
     grid-template-columns: 1fr 1fr 1fr;
+  }
+
+  @media screen and (max-width: 550px) {
+    grid-template-columns: 1fr 1fr;
   }
 }
 
@@ -239,6 +239,7 @@ footer {
   background: white;
   padding: 0.9rem;
   width: 100%;
+  min-width: 0;
   transition: box-shadow ease-in-out 0.3s;
 
   img {
@@ -255,6 +256,7 @@ footer {
 
     div {
       display: flex;
+      max-width: 8rem;
       flex-direction: column;
       justify-content: center;
     }
@@ -263,7 +265,6 @@ footer {
   .nombre-producto {
     color: var(--color-text);
     font-size: medium;
-    max-width: 40vw;
     margin: 0;
     padding: 0;
     overflow: hidden;
