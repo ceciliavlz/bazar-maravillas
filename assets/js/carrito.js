@@ -1,4 +1,4 @@
-import { getArrayCarrito, removeProductCarrito, cantidadCarrito, updateProductCarrito } from "./utils/cartUtils.js";
+import { getArrayCarrito, removeProductCarrito, cantidadCarrito, updateProductCarrito, crearArrayCarrito } from "./utils/cartUtils.js";
 import { getProductById } from "../../api/api.js";
 import { setPageKeywords } from "./utils/pageUtils.js";
 import { menuHamburguesa,navPages } from "./utils/pageUtils.js";
@@ -55,7 +55,7 @@ async function pintarProductosCarrito(){
     const compra = document.createElement('div');
     compra.className = "mi-compra";
     compra.setAttribute('aria-label', 'Productos en el carrito');
-    compra.innerHTML = `<h2>MIS COMPRAS</h2>`;
+    compra.innerHTML = `<div id="compras-titulo"><h2>MIS COMPRAS</h2><button id="vaciar-carrito" class="boton">VACIAR CARRITO</button></div>`;
 
     const productos = await obtenerProductosCarrito();
     
@@ -92,6 +92,14 @@ async function pintarProductosCarrito(){
             initCarrito();
         });
     });
+
+    const vaciarCarrito = document.getElementById("vaciar-carrito");
+    vaciarCarrito.addEventListener("click", () => {
+        if (confirm("¿Desea vaciar su carrito?")) {
+            crearArrayCarrito();
+            initCarrito();
+        }
+    })
 }
 
 async function pintarResumenCompra(){
