@@ -448,37 +448,38 @@ footer {
       padding-right: 1.25rem;
       background-color: white;
 
+      .fila-carrito {
+        display: flex;
+        align-items: center;
 
-      div {
-        display: grid;
-        grid-template-columns: .5fr 2fr .5fr .5fr;
+        .formulario{
+          width: 100%;
+          display: flex;
+          justify-content: flex-end;
+          gap: 1rem;          
+        }
 
         img {
           object-fit: contain;
           height: 6.25rem;
           width: 6.25rem;
+          min-width: 6.25rem;
+          max-width: 6.25rem;
         }
 
         .nombre-precio {
           display: flex;
           flex-direction: column;
+          max-width: 30rem;
+          padding-left: 1.5rem;
           width: 100%;
-          padding-left: 0.93rem;
         }
 
-        .precio-y-eliminar {
+        .precio {
           display: flex;
-          justify-content: space-between;
           align-items: center;
+          margin-right: auto;
 
-          input {
-            align-self: center;
-            padding: 8px;
-            margin-right: 1rem;
-            border: 1px var(--color-text) solid;
-            color: var(--color-text);
-            border-radius: none;
-          }
         }
 
         .nombre {
@@ -503,8 +504,16 @@ footer {
           color: #5b545f;
         }
 
-        button {
-          margin-left: auto;
+        .eliminar-del-carrito {
+          padding: 0.5rem;
+        }
+
+        input {
+          padding: 0.5rem;
+          border: 1px var(--color-text) solid;
+          color: var(--color-text);
+          border-radius: none;
+          width: 3rem;
         }
       }
     }

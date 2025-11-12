@@ -75,3 +75,22 @@ export function navPages() {
     `
 }
 
+export function StartLoading() {
+  if (document.querySelector('.loader-overlay')) return;
+
+  const overlay = document.createElement('div');
+  overlay.className = 'loader-overlay';
+  overlay.innerHTML = `
+    <span class="loader"></span>
+    <p>Preparando todo para tu pedido...</p>
+  `;
+
+  document.body.appendChild(overlay);
+}
+
+export function StopLoading() {
+    setInterval(() => {
+        const loader = document.querySelector('.loader-overlay');
+        if (loader) loader.remove()
+    }, 1000);
+}

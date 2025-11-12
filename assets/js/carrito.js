@@ -1,6 +1,6 @@
 import { getArrayCarrito, removeProductCarrito, cantidadCarrito, updateProductCarrito, crearArrayCarrito } from "./utils/cartUtils.js";
 import { getProductById } from "../../api/api.js";
-import { setPageKeywords } from "./utils/pageUtils.js";
+import { setPageKeywords, StartLoading, StopLoading } from "./utils/pageUtils.js";
 import { menuHamburguesa,navPages } from "./utils/pageUtils.js";
 
 setPageKeywords();
@@ -20,31 +20,34 @@ export async function obtenerProductosCarrito(){
 function crearProductoFila(p){
     const { id, nombre, precio, img, cantidad } = p;
     return `
-        <div id="${id}" role="group" aria-labelledby="nombre-${id}">
-            <img src="${img.baja}" alt="${nombre}"/>
+        <div class="fila-carrito" id="${id}" role="group" aria-labelledby="nombre-${id}">
+            <div class="img-container">
+                <img src="${img.baja}" alt="${nombre}"/>
+            </div>
             <div class="nombre-precio"> 
                 <div class="nombre"> 
                     <p>${nombre}</p>
                 </div>
-                <div class="precio-y-eliminar">
+                <div class="precio">
                     <div class="precios">
                         <p>$${precio.toLocaleString("es-AR")} x ${cantidad.toLocaleString("es-AR")} = $${(precio * cantidad).toLocaleString("es-AR")}</p>
                     </div>
-                    <form class="cambiar-cantidad" aria-label="Formulario para cambiar cantidad a comprar" action="input">
-                        <input
-                            type="number"
-                            class="cantidad"
-                            value="${cantidad}"
-                            min="1"
-                            max="${p.stock}"
-                            aria-describedby="stock-info-${p.id}">
-                    </form>
-                    <button class="eliminar-del-carrito boton" aria-label="Eliminar ${nombre} del carrito">
-                        🗑
-                    </button>
                 </div>
             </div>
-
+            <div class="formulario"> 
+                <form class="cambiar-cantidad" aria-label="Formulario para cambiar cantidad a comprar" action="input">
+                    <input
+                        type="number"
+                        class="cantidad"
+                        value="${cantidad}"
+                        min="1"
+                        max="${p.stock}"
+                        aria-describedby="stock-info-${p.id}">
+                </form>
+                <button class="eliminar-del-carrito boton" aria-label="Eliminar ${nombre} del carrito">
+                    <i class="bi bi-trash3"></i>
+                </button>
+            </div>
         </div>
     `
 };
@@ -75,7 +78,7 @@ async function pintarProductosCarrito(){
 
     document.querySelectorAll('.eliminar-del-carrito').forEach(b => {
         b.addEventListener('click', (e) => {
-            let id = b.parentElement.parentElement.parentElement.id;
+            let id = b.parentElement.parentElement.id;
             let p = productos.find(item => item.id === parseInt(id));
             if (confirm(`Quieres eliminar ${p.cantidad} x ${p.nombre} de tu compra?`)) {
                 removeProductCarrito(id);
@@ -86,7 +89,7 @@ async function pintarProductosCarrito(){
 
     document.querySelectorAll('.cantidad').forEach(form => {
         form.addEventListener('change', () => {
-            let id = form.parentElement.parentElement.parentElement.parentElement.id;
+            let id = form.parentElement.parentElement.parentElement.id;
             let p = productos.find(item => item.id === parseInt(id));
             updateProductCarrito(id, form.value - p.cantidad);
             initCarrito();
@@ -163,20 +166,23 @@ function pintarCarritoVacio(){
 async function pintarCarrito(){
     const seccionCarrito = document.getElementById('seccion-carrito');
     seccionCarrito.innerHTML = '';
-
     pintarProductosCarrito();
     await pintarResumenCompra();
 }
 
 function initCarrito(){
-    if(getArrayCarrito().length === 0){
+    
+    StartLoading();
+    if(getArrayCarrito().length === 0){        
         pintarCarritoVacio();
     } else {
-        pintarCarrito()
+        pintarCarrito();
     }
     navPages();
     menuHamburguesa();
     cantidadCarrito();
+
+    StopLoading();
 }
 
 document.addEventListener("DOMContentLoaded", () => {
