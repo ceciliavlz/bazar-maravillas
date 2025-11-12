@@ -685,6 +685,10 @@ footer {
   justify-content: center;
   min-height: var(--main-height);
 
+  @media screen and (max-width: 800px) {
+    flex-direction: column;
+  }
+
   .checkout-form-container {
     margin: 0.5rem;
     background-color: white;
@@ -735,8 +739,8 @@ footer {
     }
   }
   .detalles-resumen{
-    margin-bottom: auto;
-    margin-top: 1rem;
+    order: -1;
+    margin: 1rem 0rem auto;
     .botones-resumen{
       display: none;
     }
