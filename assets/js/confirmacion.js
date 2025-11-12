@@ -1,5 +1,5 @@
 import { menuHamburguesa,navPages } from "./utils/pageUtils.js";
-import { cantidadCarrito } from "./utils/cartUtils.js";
+import { cantidadCarrito, crearArrayCarrito } from "./utils/cartUtils.js";
 import { resumenHTML } from "./carrito.js";
 
 const seccionConfirmacion = document.getElementById("seccion-confirmacion");
@@ -126,6 +126,7 @@ function mensajeConfirmacion(){
         form.style.display = "none";
         if (resumen) resumen.style.display = "none";
         document.querySelector(".checkout-form-container").style.display = "none";
+        crearArrayCarrito();
     });
 }
 
