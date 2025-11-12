@@ -1,5 +1,5 @@
 import { menuHamburguesa,navPages } from "./utils/pageUtils.js";
-import { cantidadCarrito } from "./utils/cartUtils.js";
+import { cantidadCarrito, crearArrayCarrito } from "./utils/cartUtils.js";
 import { resumenHTML } from "./carrito.js";
 
 const seccionConfirmacion = document.getElementById("seccion-confirmacion");
@@ -11,40 +11,70 @@ function Formulario(){
         <form id="checkout-form">
             <div class="form-group">
             <label for="nombre">Nombre completo</label>
-            <input type="text" id="nombre" name="nombre" required>
+            <input type="text" id="nombre" name="nombre" 
+                placeholder="Tu nombre" 
+                minlength="3"
+                maxlength="50" 
+                pattern="^[a-zA-ZÑñáÁéÉíÍóÓúÚ ]{3,50}$"
+                required>
             </div>
 
             <div class="form-group">
             <label for="email">Correo electrónico</label>
-            <input type="email" id="email" name="email" required>
+            <input type="email" id="email" name="email"
+                placeholder="nombre@ejemplo.com"
+                required>
             </div>
 
             <div class="form-group">
             <label for="direccion">Dirección</label>
-            <input type="text" id="direccion" name="direccion" required>
+            <input type="text" id="direccion" name="direccion"
+                placeholder="Tu dirección" 
+                minlength="3"
+                maxlength="50" 
+                pattern="^[a-zA-Z0-9ÑñáÁéÉíÍóÓúÚ/ ]{3,50}$"
+                required>
             </div>
 
             <div class="form-row">
             <div class="form-group">
                 <label for="ciudad">Ciudad</label>
-                <input type="text" id="ciudad" name="ciudad" required>
+                <input type="text" id="ciudad" name="ciudad"
+                placeholder="Tu ciudad" 
+                minlength="3"
+                maxlength="50" 
+                pattern="^[a-zA-ZÑñáÁéÉíÍóÓúÚ ]{3,50}$"
+                required>
             </div>
+
             <div class="form-group">
                 <label for="codigo-postal">Código postal</label>
-                <input type="text" id="codigo-postal" name="codigo-postal" required>
+                <input type="text" id="codigo-postal" name="codigo-postal"
+                placeholder="Código postal de la dirección" 
+                minlength="3"
+                maxlength="8" 
+                pattern="^[A-Z0-9]{4, 8}$"
+                required>
             </div>
             </div>
 
             <div class="form-row">
             <div class="form-group">
                 <label for="telefono">Teléfono</label>
-                <input type="tel" id="telefono" name="telefono" required>
+                <input type="tel" id="telefono" name="telefono"
+                placeholder="Tu número de teléfono" 
+                minlength="3"
+                maxlength="50" 
+                pattern="^[0-9+ -]{10,20}$"
+                required>
             </div>
             </div>
 
             <div class="form-group">
             <label for="notas">Notas adicionales (opcional)</label>
-            <textarea id="notas" name="notas" rows="3"></textarea>
+            <textarea id="notas" name="notas"
+                rows="3"
+                placeholder="Información adicional sobre el lugar de envío"></textarea>
             </div>
 
             <button class="boton" id="boton-confirmar" type="submit">Confirmar pedido</button>
@@ -96,6 +126,7 @@ function mensajeConfirmacion(){
         form.style.display = "none";
         if (resumen) resumen.style.display = "none";
         document.querySelector(".checkout-form-container").style.display = "none";
+        crearArrayCarrito();
     });
 }
 
