@@ -1030,3 +1030,23 @@ footer {
     25% { transform: translateX(-5px); }
     75% { transform: translateX(5px); }
 }
+
+
+
+.error-msg {
+  display: none; 
+  color: #c00; 
+  font-size: 0.9rem;
+  font-weight: 500;
+  margin-top: 0.3rem;
+}
+
+
+.is-invalid {
+  border-color: #c00 !important; 
+
+
+.is-valid {
+  border-color: #0a0 !important; 
+}
+}
