@@ -541,6 +541,13 @@ footer {
             padding-left: 0;
             font-size: 0.8rem;
           }
+
+          @media screen and (max-width: 550px) {
+            .formulario {
+              flex-direction: column-reverse;
+              align-items: center;
+            }
+          }
         }
       }
     }
