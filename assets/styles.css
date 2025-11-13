@@ -704,6 +704,13 @@ footer {
     padding: 1.5rem;
     flex: 2;
 
+    .error {
+      display: none;
+      color: #c00;
+      font-size: 0.9rem;
+      margin-top: 0.2rem;
+    }
+
     .form-group {
       margin-bottom: 1rem;
 
@@ -718,6 +725,16 @@ footer {
         border: 1px solid rgb(211, 211, 211);
         font-size: 0.875rem;
         transition: border 0.3s;
+      }
+
+      .esValido {
+        border-style: dashed;
+        border-color: greenyellow;
+      }
+    
+      .esInvalido {
+        border-style: dashed;
+        border-color: red;
       }
 
       input:focus, select:focus, textarea:focus {
