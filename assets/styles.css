@@ -486,7 +486,6 @@ footer {
           display: flex;
           align-items: center;
           margin-right: auto;
-
         }
 
         .nombre {
@@ -532,19 +531,24 @@ footer {
 
     ul {
       li {
-        div {
+        .fila-carrito {
           .nombre-precio {
-            width: 10rem;
+            padding: 0;
+            width: auto;
           }
-
+          .formulario{
+            width: auto;
+            margin-left: auto;
+            padding: 0;
+            gap:0.3rem;
+          }
           .nombre {
             padding-left: 0;
-            font-size: 0.8rem;
+            font-size: 1rem;
           }
 
           @media screen and (max-width: 550px) {
             .formulario {
-              flex-direction: column-reverse;
               align-items: center;
             }
           }
