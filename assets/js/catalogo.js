@@ -1,6 +1,6 @@
 import { cantidadCarrito } from "./utils/cartUtils.js";
 //import { productos } from "./data.js";
-import { getProductos } from "../../api/api.js";
+import { getProductos, getCategorias } from "../../api/api.js";
 import { getProductStock } from "./utils/stockUtils.js";
 import { setPageKeywords } from "./utils/pageUtils.js";
 import { menuHamburguesa, navPages } from "./utils/pageUtils.js";
@@ -97,6 +97,51 @@ async function tipoFiltro(){
     mediaQuery.addEventListener("change", tipoFiltro);
 }
 
+async function agregarCategorias(){
+    const selectCategorias = document.getElementById("filtro-categoria");
+    const categorias = await getCategorias();
+    
+    categorias.forEach(categoria => {
+        const option = document.createElement("option");
+        option.value = categoria;
+
+        switch (categoria) {
+        case "men's clothing":
+            option.innerHTML= "Ropa de hombre";
+            break;
+        case "jewelery":
+            option.innerHTML= "Joyería";
+            break;
+        case "electronics":
+            option.innerHTML= "Electrónica";
+            break;
+        case "women's clothing":
+            option.innerHTML= "Ropa de mujer";
+            break;
+        case "deco-hogar":
+            option.innerHTML= "Decoración hogar";
+            break;
+        case "articulos-cocina":
+            option.innerHTML= "Artículos de cocina";
+            break;
+        case "vajilla":
+            option.innerHTML= "Vajilla";
+            break;
+        case "cama":
+            option.innerHTML= "Cama";
+            break;
+        case "jardin":
+            option.innerHTML= "Jardín";
+            break;
+        default:
+            option.innerHTML = categoria;
+        }
+
+        selectCategorias.appendChild(option);
+    });
+
+}
+
 async function initCatalogo() {
     const cont = document.getElementById("productos");
     if (!cont) return;
@@ -111,6 +156,7 @@ async function initCatalogo() {
     menuHamburguesa();
     configurarLabelResponsivo();
     tipoFiltro();
+    agregarCategorias();
 }
 
 document.addEventListener("DOMContentLoaded", initCatalogo);

@@ -2,7 +2,7 @@
 @import url("https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@100..900&display=swap");
 
 :root {
-  --main-height: calc(100% - 5rem - 8.5rem);
+  --main-height: calc(100vh - 5rem - 8.5rem);
   --color-primary: #1a2c44;
   --color-accent: #da6026;
   --color-bg: #e4e4e4;
@@ -177,7 +177,7 @@ footer {
   display: grid;
   grid-template-columns: 1fr 4fr;
   padding: 1rem;
-  gap: 3rem;
+  gap: 1rem;
 
 
   @media screen and (max-width: 800px) {
@@ -253,7 +253,7 @@ footer {
 .titulo-catalogo {
   color: var(--color-text);
   font-size: large;
-  margin-top: 1.5625rem;
+  margin-top: 1rem;
 }
 
 .productos-index > .producto:nth-child(4) {
@@ -284,7 +284,6 @@ footer {
   background: white;
   padding: 0.9rem;
   width: 100%;
-  min-width: 0;
   transition: box-shadow ease-in-out 0.3s;
   min-width: 0; /* evita que el contenido expanda la columna */
 
@@ -302,7 +301,7 @@ footer {
 
     div {
       display: flex;
-      max-width: 8rem;
+      max-width: 100%;
       flex-direction: column;
       justify-content: center;
     }
@@ -582,7 +581,7 @@ footer {
   .mi-compra ul li .fila-carrito .nombre-precio {
     padding: 0;
     width: auto;
-    padding-left: 0.5rem;
+    padding-left: 1rem;
   }
 
   .mi-compra ul li .fila-carrito .formulario {
