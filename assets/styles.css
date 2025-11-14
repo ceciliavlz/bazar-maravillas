@@ -276,6 +276,13 @@ footer {
   @media screen and (max-width: 550px) {
     grid-template-columns: 1fr 1fr;
   }
+
+  @media screen and (max-width: 440px) {
+    grid-template-columns: 1fr;
+    .formulario{
+      margin-left: auto;
+    }
+  }
 }
 
 .producto {
