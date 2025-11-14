@@ -36,20 +36,6 @@ function cardProducto(p) {
   return articulo;
 }
 
-async function initCatalogo() {
-    const cont = document.getElementById("productos");
-    if (!cont) return;
-    cont.innerHTML = "";
-    const productos = await getProductos();
-
-
-    productos.forEach(p => cont.appendChild(cardProducto(p)));
-    
-    navPages();
-    cantidadCarrito();
-    menuHamburguesa();
-}
-
 async function filtrarProductos(){
     const categoria = localStorage.getItem("filtro");
     const cont = document.getElementById("productos");
@@ -66,10 +52,67 @@ function actualizarFiltroPersistente() {
     localStorage.setItem("filtro", categoriaSeleccionada);
 }
 
+function configurarLabelResponsivo() {
+    const label = document.getElementById("label-categoria");
+    if (!label) return;
+
+    const mediaQuery = window.matchMedia("(max-width: 550px)");
+
+    function actualizarLabel(e) {
+        if (e.matches) {
+            label.textContent = "Filtro";
+        } else {
+            label.textContent = "Filtrar por categoría:";
+        }
+    }
+
+    actualizarLabel(mediaQuery);
+    mediaQuery.addEventListener("change", actualizarLabel);
+}
+
+async function tipoFiltro(){
+    const select = document.getElementById("filtro-categoria");
+    const boton = document.getElementById("boton-filtrar");
+    //quita duplicados
+    select.replaceWith(select.cloneNode(true));
+    boton.replaceWith(boton.cloneNode(true));
+
+    const nuevoSelect = document.getElementById("filtro-categoria");
+    const nuevoBoton = document.getElementById("boton-filtrar");
+
+    const mediaQuery = window.matchMedia("(max-width: 550px)");
+
+    if (mediaQuery.matches){
+        nuevoSelect.addEventListener("change", () => {
+            actualizarFiltroPersistente();
+            filtrarProductos();
+        });
+    } else{
+        nuevoBoton.addEventListener("click", () => {
+            actualizarFiltroPersistente();
+            filtrarProductos();
+        });
+    }
+
+    mediaQuery.addEventListener("change", tipoFiltro);
+}
+
+async function initCatalogo() {
+    const cont = document.getElementById("productos");
+    if (!cont) return;
+    cont.innerHTML = "";
+    const productos = await getProductos();
+
+
+    productos.forEach(p => cont.appendChild(cardProducto(p)));
+    
+    navPages();
+    cantidadCarrito();
+    menuHamburguesa();
+    configurarLabelResponsivo();
+    tipoFiltro();
+}
+
 document.addEventListener("DOMContentLoaded", initCatalogo);
 
 window.addEventListener("storage", initCatalogo);
-
-document.getElementById("boton-filtrar").addEventListener("click", filtrarProductos);
-
-document.getElementById("filtro-categoria").addEventListener("change", actualizarFiltroPersistente);

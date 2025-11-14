@@ -19,8 +19,8 @@
 
     <section id="hero" aria-labelledby="titulo-catalogo">
         <h2 class="titulo-catalogo">CATÁLOGO DE PRODUCTOS</h2>
-        
-        <label for="filtro-categoria">Filtrar por categoría:
+        <div class="select-categoria">
+            <label for="filtro-categoria" id="label-categoria">Filtrar por categoría:</label>
             <select name="Categoria" id="filtro-categoria">
                 <option value="" selected>Todas</option>
                 <option value="men's clothing">Ropa de hombre</option>
@@ -28,9 +28,8 @@
                 <option value="electronics">Electrónica</option>
                 <option value="women's clothing">Ropa de mujer</option>
             </select>
-        </label>
+        </div>
         <button id="boton-filtrar" class="boton">Aplicar</button>
-
     </section>
 
     <section id="productos" role="list" aria-label="Lista de productos"></section>
