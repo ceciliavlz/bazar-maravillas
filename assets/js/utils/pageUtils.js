@@ -30,14 +30,38 @@ export function menuHamburguesa(){
     
     abrir.addEventListener("click", () =>{
         nav.classList.add("visible");
+        
+        const background = document.createElement('div');
+        background.addEventListener('click', () => {
+            cerrarMenu();
+        })
+        
+        background.id = 'background-menu';
+        background.style.width = '100vw';
+        background.style.height = '100vh';
+        background.style.background = 'black';
+        background.style.position = 'absolute';
+        background.style.top = 0;
+        background.style.opacity = 0.2;
+
+        document.querySelector('header').appendChild(background)
     })
 
-    cerrar.addEventListener("click", () =>{
+    function cerrarMenu(){
+        const background = document.getElementById('background-menu');
+
         nav.classList.add("menu-cerrado");
+
         setTimeout(() => {
-        nav.classList.remove("visible");
-        nav.classList.remove("menu-cerrado");
+            nav.classList.remove("visible");
+            nav.classList.remove("menu-cerrado");
+            background.remove();
+
         }, 200);
+    }
+
+    cerrar.addEventListener("click", () =>{
+        cerrarMenu();
     })
 }
 
