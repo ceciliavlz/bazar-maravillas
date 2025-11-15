@@ -20,10 +20,13 @@
     <section id="hero" aria-labelledby="titulo-catalogo">
         <h2 class="titulo-catalogo">CATÁLOGO DE PRODUCTOS</h2>
         <div class="select-categoria">
-            <label for="filtro-categoria" id="label-categoria">Filtrar por categoría:</label>
-            <select name="Categoria" id="filtro-categoria">
-                <option value="" selected>Todas</option>
-            </select>
+            <p id="nombre-categoria"></p>
+            <div class="label-select">
+                <label for="filtro-categoria" id="label-categoria">Filtrar por categoría:</label>
+                <select name="Categoria" id="filtro-categoria">
+                    <option value="" selected>Todas</option>
+                </select>
+            </div>
         </div>
         <button id="boton-filtrar" class="boton">Aplicar</button>
     </section>

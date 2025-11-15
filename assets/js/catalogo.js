@@ -7,6 +7,8 @@ import { menuHamburguesa, navPages } from "./utils/pageUtils.js";
 
 setPageKeywords();
 
+var categoriasNombres = new Map();
+
 function cardProducto(p) {
   const articulo = document.createElement("div");
   articulo.className = "producto";
@@ -45,6 +47,14 @@ async function filtrarProductos(){
     const filtrados = (categoria ? productos.filter((p)=> p.categoria === categoria) : productos);
 
     filtrados.forEach(p => {p.stock = cont.appendChild(cardProducto(p))});  
+
+    const nombreCategoria = document.getElementById("nombre-categoria");
+    if (categoria){
+        console.log(categoria);
+        nombreCategoria.innerHTML = obtenerNombreCategoria(categoria);
+    } else{
+        nombreCategoria.innerHTML = "";
+    }
 }
 
 function actualizarFiltroPersistente() {
@@ -97,6 +107,43 @@ async function tipoFiltro(){
     mediaQuery.addEventListener("change", tipoFiltro);
 }
 
+function obtenerNombreCategoria(codigoCategoria){
+    let nombre;
+
+    switch (codigoCategoria) {
+        case "men's clothing":
+            nombre = "Ropa de hombre";
+            break;
+        case "jewelery":
+            nombre = "Joyería";
+            break;
+        case "electronics":
+            nombre = "Electrónica";
+            break;
+        case "women's clothing":
+            nombre = "Ropa de mujer";
+            break;
+        case "deco-hogar":
+            nombre = "Decoración hogar";
+            break;
+        case "articulos-cocina":
+            nombre = "Artículos de cocina";
+            break;
+        case "vajilla":
+            nombre = "Vajilla";
+            break;
+        case "cama":
+            nombre = "Cama";
+            break;
+        case "jardin":
+            nombre = "Jardín";
+            break;
+        default:
+            nombre  = categoria;
+        }
+    return nombre;
+}
+
 async function agregarCategorias(){
     const selectCategorias = document.getElementById("filtro-categoria");
     const categorias = await getCategorias();
@@ -105,38 +152,8 @@ async function agregarCategorias(){
         const option = document.createElement("option");
         option.value = categoria;
 
-        switch (categoria) {
-        case "men's clothing":
-            option.innerHTML= "Ropa de hombre";
-            break;
-        case "jewelery":
-            option.innerHTML= "Joyería";
-            break;
-        case "electronics":
-            option.innerHTML= "Electrónica";
-            break;
-        case "women's clothing":
-            option.innerHTML= "Ropa de mujer";
-            break;
-        case "deco-hogar":
-            option.innerHTML= "Decoración hogar";
-            break;
-        case "articulos-cocina":
-            option.innerHTML= "Artículos de cocina";
-            break;
-        case "vajilla":
-            option.innerHTML= "Vajilla";
-            break;
-        case "cama":
-            option.innerHTML= "Cama";
-            break;
-        case "jardin":
-            option.innerHTML= "Jardín";
-            break;
-        default:
-            option.innerHTML = categoria;
-        }
-
+        option.innerHTML = obtenerNombreCategoria(categoria);
+        
         selectCategorias.appendChild(option);
     });
 
